@@ -1,0 +1,13 @@
+{
+  "name": "orchestration-os",
+  "version": "0.1.0",
+  "description": "An open operating system for building with AI through orchestration: the standard, ceremonies, factory, gatekeeper, sandbox, agents, commands, and hooks.",
+  "author": "Alex Villarroel",
+  "license": "MIT",
+  "keywords": ["claude-code", "ai-agents", "orchestration", "prompts", "agents", "hooks"],
+  "components": {
+    "agents": "./agents",
+    "commands": "./commands",
+    "hooks": "./hooks"
+  }
+}
