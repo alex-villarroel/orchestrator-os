@@ -1,6 +1,6 @@
 *What an orchestrator actually is, and the one rule that defines it: a persistent director that frames work and dispatches disposable workers, but never does the leaf work itself.*
 
-← [[orchestrators/00_ORCHESTRATORS_INDEX|00_ORCHESTRATORS_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_ORCHESTRATORS_INDEX](./00_ORCHESTRATORS_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
 ---
 
@@ -34,7 +34,7 @@ The two tiers are different kinds of thing, and conflating them is the most comm
 
 The builder is the orchestrator's **doer tier**: the role it dispatches to actually produce the work. A code orchestrator's builder is a real role that reads a brief and writes to a repo. A non-code orchestrator's builder tier is just its sub-agent roster (researchers, reviewers, drafters). Either way, the builder is downstream of the orchestrator and never the reverse.
 
-See [[ceremonies/multi-agent-contract|multi-agent-contract]] for how the tiers are wired (roster, dispatch schema, guardrails) and [[the-standard/orchestrator-standard|orchestrator-standard]] for what a complete orchestrator must contain to be "born."
+See [multi-agent-contract](../ceremonies/multi-agent-contract.md) for how the tiers are wired (roster, dispatch schema, guardrails) and [orchestrator-standard](../the-standard/orchestrator-standard.md) for what a complete orchestrator must contain to be "born."
 
 ## When to spawn vs when to embody
 
@@ -75,7 +75,7 @@ State the routing explicitly in the classifier line of every task so the choice 
 
 ## How it runs (the loop)
 
-Every orchestrator runs the same shape; only the domain content changes (see [[ceremonies/build-ceremony|build-ceremony]] for the full per-task spine):
+Every orchestrator runs the same shape; only the domain content changes (see [build-ceremony](../ceremonies/build-ceremony.md) for the full per-task spine):
 
 1. **Classify** the request (task type, lane/rigor, do-vs-spawn, model, who to consult).
 2. **Ground** in the real system (the live source beats any doc).
@@ -89,15 +89,15 @@ The gate before the irreversible step (deploy, money-commit, external send) is n
 
 ## Related
 
-- [[the-standard/orchestrator-standard|orchestrator-standard]] - the mold every orchestrator is minted from (the birth checklist).
-- [[ceremonies/build-ceremony|build-ceremony]] - the per-task operating spine.
-- [[ceremonies/multi-agent-contract|multi-agent-contract]] - the roster, dispatch standard, and guardrails.
-- [[orchestrators/example-orchestrator|example-orchestrator]] - a fully worked generic example you can copy.
+- [orchestrator-standard](../the-standard/orchestrator-standard.md) - the mold every orchestrator is minted from (the birth checklist).
+- [build-ceremony](../ceremonies/build-ceremony.md) - the per-task operating spine.
+- [multi-agent-contract](../ceremonies/multi-agent-contract.md) - the roster, dispatch standard, and guardrails.
+- [example-orchestrator](./example-orchestrator.md) - a fully worked generic example you can copy.
 
 ---
 
 *Adapted from the Architect Reference (ECC, MIT), Anthropic's multi-agent guidance, and Cognition's single-threaded-integration principle.*
 
-← [[orchestrators/00_ORCHESTRATORS_INDEX|00_ORCHESTRATORS_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_ORCHESTRATORS_INDEX](./00_ORCHESTRATORS_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

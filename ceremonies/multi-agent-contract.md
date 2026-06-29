@@ -2,9 +2,9 @@
 
 *Roles, structure, and the agent-operations layer: who directs, who builds, who ships, and the rules that keep many agents from stepping on each other or on the math.*
 
-← [[ceremonies/00_CEREMONIES_INDEX|00_CEREMONIES_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_CEREMONIES_INDEX](./00_CEREMONIES_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
-Related: [[ceremonies/build-ceremony|build-ceremony]] · [[ceremonies/operator-ceremony|operator-ceremony]] · [[ceremonies/factory-ceremony|factory-ceremony]] · [[ceremonies/gatekeeper-ceremony|gatekeeper-ceremony]]
+Related: [build-ceremony](./build-ceremony.md) · [operator-ceremony](./operator-ceremony.md) · [factory-ceremony](./factory-ceremony.md) · [gatekeeper-ceremony](./gatekeeper-ceremony.md)
 
 ---
 
@@ -25,7 +25,7 @@ One **orchestrator** (persistent) directs many disposable **builder** sub-agents
 - **Default model:** the top tier (orchestration, verification, architecture, root-cause, multi-file invariants).
 
 ### Builder sub-agent (one per change, fresh context, disposable)
-- Reads the directive, recons its lane, **stages** exactly one well-scoped change in its allowed files, runs the full [[ceremonies/build-ceremony|build-ceremony]], writes a structured report, and **stops**.
+- Reads the directive, recons its lane, **stages** exactly one well-scoped change in its allowed files, runs the full [build-ceremony](./build-ceremony.md), writes a structured report, and **stops**.
 - **Never** packages, deploys, or integrates. Never says "live." A builder's job ends at staged plus reported.
 - **Default model:** the mid tier (implementation, refactors); the low tier for trivial mechanical edits.
 
@@ -144,7 +144,7 @@ This is the orchestrator's signature move and a non-negotiable: **never trust a 
 
 When a sub-agent's output quality drops ("the builder is getting worse," tools look flaky, a fresh context behaves worse than the playground, a post-compaction session feels off), walk the layers most likely to bite:
 
-- **System prompt**: conflicting or bloated instructions (an ever-growing prohibition list degrades the agent; this is why the lessons base gets a garbage-collection pass, see [[ceremonies/gatekeeper-ceremony|gatekeeper-ceremony]]).
+- **System prompt**: conflicting or bloated instructions (an ever-growing prohibition list degrades the agent; this is why the lessons base gets a garbage-collection pass, see [gatekeeper-ceremony](./gatekeeper-ceremony.md)).
 - **Session history / memory**: stale context injected after a compaction; old topics leaking into a new dispatch.
 - **Tool discipline**: "must use tool X" lives only in prose and is not enforced in code, so the agent skips it or hallucinates the call. Code-gate the requirement.
 - **Hidden repair loops**: a silent second pass mutating the output.
@@ -188,6 +188,6 @@ Each card is one **independently-verifiable change with a single dominant risk a
 13. **Verify in parallel.** The independent verify checks dispatch in one batch at stage-complete, never serialized.
 
 ---
-*Multi-Agent Contract: the org chart and agent-ops layer of Orchestration OS. Pairs with [[ceremonies/build-ceremony|build-ceremony]]. Living document: the retro flywheel amends it. Adapted from ECC (MIT, Affaan Mustafa), Anthropic Claude Code, and Cognition multi-agent research.*
+*Multi-Agent Contract: the org chart and agent-ops layer of Orchestrator OS. Pairs with [build-ceremony](./build-ceremony.md). Living document: the retro flywheel amends it. Adapted from ECC (MIT, Affaan Mustafa), Anthropic Claude Code, and Cognition multi-agent research.*
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

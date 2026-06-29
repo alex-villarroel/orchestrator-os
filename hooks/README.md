@@ -1,6 +1,6 @@
 # Hooks: the enforcement layer
 
-← [[hooks/00_HOOKS_INDEX|00_HOOKS_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_HOOKS_INDEX](./00_HOOKS_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
 A hook is a command the agent harness runs automatically on a lifecycle event (before or after a tool call, at session start, at compaction). It reads the event as JSON on stdin and can allow, ask, deny, or inject context. This directory holds small, self-contained Node scripts plus this guide.
 
@@ -14,15 +14,15 @@ A hook is the opposite: a script the harness runs on every matching tool call, i
 
 | Script | Event | Decision | Posture |
 |---|---|---|---|
-| [[eol-guard.js]] | PreToolUse + PostToolUse on Edit/Write | block on a confirmed EOL flip | fail-open |
-| [[frozen-zone.js]] | PreToolUse on Edit/Write to a frozen list | ask | fail-open |
-| [[dangerous-transform.js]] | PreToolUse on shell tools | deny blind in-place transforms | fail-open |
-| [[deploy-gate.js]] | PreToolUse on the deploy command | deny unless proof is fresh and green | fail-closed |
-| [[session-start.js]] | SessionStart | inject a reground banner | non-blocking |
+| [eol-guard.js](./eol-guard.js) | PreToolUse + PostToolUse on Edit/Write | block on a confirmed EOL flip | fail-open |
+| [frozen-zone.js](./frozen-zone.js) | PreToolUse on Edit/Write to a frozen list | ask | fail-open |
+| [dangerous-transform.js](./dangerous-transform.js) | PreToolUse on shell tools | deny blind in-place transforms | fail-open |
+| [deploy-gate.js](./deploy-gate.js) | PreToolUse on the deploy command | deny unless proof is fresh and green | fail-closed |
+| [session-start.js](./session-start.js) | SessionStart | inject a reground banner | non-blocking |
 
 ## The config schema (settings.json hooks block)
 
-Hooks are registered in the harness `settings.json` under a `hooks` key, grouped by event. Each entry has a `matcher` (which tool it applies to) and a list of `hooks` (commands to run). Use absolute paths or a `$VAR` the harness resolves; the placeholders below stand in for your install root.
+Hooks are registered in the harness `settings.json` under a `hooks` key, grouped by event. Each entry has a `matcher` (which tool it applies to) and a list of `hooks` (commands to run). Use absolute paths or a `$VAR` the harness resolves; the `<hooks-dir>` placeholder below stands in for your install root (for example `~/.claude/hooks` for a user-scope install, or `.claude/hooks` for a repo-scope install).
 
 ```json
 {
@@ -92,8 +92,8 @@ Instead of relying on exit code 2, a PreToolUse hook can exit `0` and print a de
 `permissionDecision` is one of:
 
 - `allow` - proceed without prompting.
-- `ask` - pause and ask the human to confirm (used by [[frozen-zone.js]]).
-- `deny` - refuse the tool call with the given reason (used by [[dangerous-transform.js]] and [[deploy-gate.js]]).
+- `ask` - pause and ask the human to confirm (used by [frozen-zone.js](./frozen-zone.js)).
+- `deny` - refuse the tool call with the given reason (used by [dangerous-transform.js](./dangerous-transform.js) and [deploy-gate.js](./deploy-gate.js)).
 
 **Context injection (SessionStart)**
 
@@ -129,7 +129,7 @@ Every hook receives the event as JSON. The fields used here:
 Every hook declares a posture in its header, and it matters:
 
 - **Fail-open** - on any internal error (bad JSON, unreadable file, missing snapshot) the hook allows the tool to proceed. A buggy guard must never brick legitimate work. Four of the five hooks here are fail-open; the only hard stop is a *confirmed* violation.
-- **Fail-closed** - [[deploy-gate.js]] is the deliberate exception. A deploy is irreversible and public, so a broken or absent gate must deny the deploy rather than wave it through. If the gate cannot prove the build is green, it says no.
+- **Fail-closed** - [deploy-gate.js](./deploy-gate.js) is the deliberate exception. A deploy is irreversible and public, so a broken or absent gate must deny the deploy rather than wave it through. If the gate cannot prove the build is green, it says no.
 
 Pick the posture by blast radius. Reversible action plus uncertainty equals allow. Irreversible action plus uncertainty equals deny.
 
@@ -183,4 +183,4 @@ Confirm all four decisions (allow, ask, deny, context) plus the kill switch befo
 
 The stdin/stdout/exit-code mechanics and the lifecycle event names follow the Claude Code hooks interface from Anthropic. The matcher-and-recipe structure, the Node-for-cross-platform approach, and several recipe shapes are adapted from the ECC plugin hooks (MIT, [affaan-m/ECC](https://github.com/affaan-m/ECC)). The scripts here are rewritten generic and self-contained.
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

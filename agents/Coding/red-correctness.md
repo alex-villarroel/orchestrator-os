@@ -23,6 +23,6 @@ Rules:
 - Return conclusions only, as a list of findings: `{severity: BLOCKING|HIGH|MEDIUM|LOW|NIT, claim, evidence: file:line plus a concrete failing input or sequence, fix}`. No transcripts.
 - If you cannot break it, say "clean" and name exactly what you checked.
 
-← [[agents/00_AGENTS_INDEX|00_AGENTS_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_CODING_INDEX](./00_CODING_INDEX.md) · [00_AGENTS_INDEX](../00_AGENTS_INDEX.md) · [Orchestrator OS](../../00_MOC.md)
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

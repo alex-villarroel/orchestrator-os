@@ -1,19 +1,19 @@
 *Use the factory to mint NEW orchestrators from one shared standard, so you do not hand build each one: capture the idea, frame it, mint the scaffolding from the mold, register and cross-link, pass the gatekeeper gate, get the owner's go, then hand off. The factory mints scaffolding and then STOPS before the build.*
 
-← [[setups/00_SETUPS_INDEX|00_SETUPS_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_SETUPS_INDEX](./00_SETUPS_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
 ---
 
 ## What the factory is for
 
-Building one orchestrator by hand teaches you the shape (see [[setups/setup-an-orchestrator|setup-an-orchestrator]]). The factory makes that repeatable: it frames a raw idea and mints a tailor made orchestration system for it (a folder, a tailored ceremony and contract, a prompt pack, a boot handoff, and a builder), using [[the-standard/orchestrator-standard|orchestrator-standard]] as the mold. Every orchestrator comes out shaped the same way, so any session is legible and nothing drifts.
+Building one orchestrator by hand teaches you the shape (see [setup-an-orchestrator](./setup-an-orchestrator.md)). The factory makes that repeatable: it frames a raw idea and mints a tailor made orchestration system for it (a folder, a tailored ceremony and contract, a prompt pack, a boot handoff, and a builder), using [orchestrator-standard](../the-standard/orchestrator-standard.md) as the mold. Every orchestrator comes out shaped the same way, so any session is legible and nothing drifts.
 
 > factory mints, gatekeeper gates, owner approves, the new orchestrator lives
 
 ## Prerequisites
 
-- You have read [[ceremonies/factory-ceremony|factory-ceremony]] (the mint flow) and [[ceremonies/gatekeeper-ceremony|gatekeeper-ceremony]] (the gate and the flywheel).
-- You have read [[the-standard/orchestrator-standard|orchestrator-standard]] so you know every birth component the mint must produce.
+- You have read [factory-ceremony](../ceremonies/factory-ceremony.md) (the mint flow) and [gatekeeper-ceremony](../ceremonies/gatekeeper-ceremony.md) (the gate and the flywheel).
+- You have read [orchestrator-standard](../the-standard/orchestrator-standard.md) so you know every birth component the mint must produce.
 - You have, or can shape with the owner, a real idea: its domain, the irreversible action that will need a gate, the frozen or forbidden zone, and the builder it will need.
 - You have a gatekeeper role available to run the conformance gate, and an owner who approves go live.
 
@@ -61,7 +61,7 @@ Generate every birth component the standard names, tailored to the real idea, to
 - **Root files:** the operating system pointer, a resume prompt, a map of content index, and a memory file.
 - **Work folders:** reference, missions, plans, designs, directives, a daily contract, status, reports, handoffs, ceremonies, archives, with `Active/` and `Complete/` on the lifecycle folders.
 - **Infra folders:** `commands/` (the full prompt pack, not a thin stub), `agents/` (point at the shared agent library path explicit, and separately at any external reference library), `hooks/`, `setups/`, and a secrets-rotation inventory and schedule (NEVER values).
-- **A tailored ceremony and contract** for the new orchestrator's domain ([[ceremonies/build-ceremony|build-ceremony]] and [[ceremonies/multi-agent-contract|multi-agent-contract]] are the patterns).
+- **A tailored ceremony and contract** for the new orchestrator's domain ([build-ceremony](../ceremonies/build-ceremony.md) and [multi-agent-contract](../ceremonies/multi-agent-contract.md) are the patterns).
 - **A boot handoff** and **the builder** (for code: a repo brief plus the repo's agent config, a project instructions file, and a proposed ignore file; for non code: the sub-agent roster).
 
 Name the frozen and forbidden zones at birth, before the builder writes a line. Every folder gets a README or index.
@@ -92,14 +92,14 @@ The new orchestrator takes its first directive from the owner; the factory steps
 
 ## Related
 
-- [[ceremonies/factory-ceremony|factory-ceremony]]: the full mint flow and the hard line this guide operationalizes.
-- [[ceremonies/gatekeeper-ceremony|gatekeeper-ceremony]]: the conformance gate and the retro flywheel that evolves the mold.
-- [[the-standard/orchestrator-standard|orchestrator-standard]]: the mold the factory mints from and the gatekeeper enforces.
-- [[setups/setup-an-orchestrator|setup-an-orchestrator]]: build one by hand first, then mint the rest with the factory.
+- [factory-ceremony](../ceremonies/factory-ceremony.md): the full mint flow and the hard line this guide operationalizes.
+- [gatekeeper-ceremony](../ceremonies/gatekeeper-ceremony.md): the conformance gate and the retro flywheel that evolves the mold.
+- [orchestrator-standard](../the-standard/orchestrator-standard.md): the mold the factory mints from and the gatekeeper enforces.
+- [setup-an-orchestrator](./setup-an-orchestrator.md): build one by hand first, then mint the rest with the factory.
 
 ---
-*Setup the factory: Orchestration OS. Adapted from ECC orch-pipeline and the Anthropic Claude Code subagent and project config model.*
+*Setup the factory: Orchestrator OS. Adapted from ECC orch-pipeline and the Anthropic Claude Code subagent and project config model.*
 
-← [[setups/00_SETUPS_INDEX|00_SETUPS_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_SETUPS_INDEX](./00_SETUPS_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

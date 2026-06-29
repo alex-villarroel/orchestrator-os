@@ -2,9 +2,11 @@
 
 *The gatekeeper pattern: the conformance gate that every new system passes before it goes live, and the retro flywheel that turns lessons into enforced rules.*
 
-← [[ceremonies/00_CEREMONIES_INDEX|00_CEREMONIES_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_CEREMONIES_INDEX](./00_CEREMONIES_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
-Related: [[ceremonies/factory-ceremony|factory-ceremony]] · [[ceremonies/build-ceremony|build-ceremony]] · [[ceremonies/multi-agent-contract|multi-agent-contract]] · [[ceremonies/operator-ceremony|operator-ceremony]]
+Related: [factory-ceremony](./factory-ceremony.md) · [build-ceremony](./build-ceremony.md) · [multi-agent-contract](./multi-agent-contract.md) · [operator-ceremony](./operator-ceremony.md)
+
+> New here? Read [the-shortform-guide](../the-shortform-guide.md) and [the-philosophy](../the-philosophy.md) first. This page is the enforcement spine and assumes the standard's vocabulary.
 
 ---
 
@@ -33,7 +35,7 @@ The gatekeeper owns the **operating system itself**: the ceremonies, the structu
 
 ## The conformance gate (the gate on new systems)
 
-When the factory ([[ceremonies/factory-ceremony|factory-ceremony]]) hands over a newly minted orchestrator, the gatekeeper runs the conformance gate **before anything goes live**. A missing box means not born.
+When the factory ([factory-ceremony](./factory-ceremony.md)) hands over a newly minted orchestrator, the gatekeeper runs the conformance gate **before anything goes live**. A missing box means not born.
 
 **The checklist:**
 - **Standard conformance**: every birth component the shared standard names is present and tailored, not copied: root files, the full work-folder set with `Active/` and `Complete/` on the lifecycle folders, the infra folders, a tailored ceremony and contract, the boot handoff, and the builder spec.
@@ -91,7 +93,7 @@ For a meta or structural rule, the enforcement point is one of `hook`, `gate:<st
 Every fixed defect, leak, or near-miss becomes an exact assert that fires if the bug returns; a non-greppable bug also gets a behavioral regression test, written failing the moment it is found. One runner runs every active row at the gate; public-surface rows also run against the live surface after ship. Any hit means red means no ship. Retirement only at a deep audit, with a reason and date.
 
 ### The garbage-collection pass (what makes folding *more* rules safe)
-Every deep audit re-validates the lessons base and the tripwire registry against current code: contradicted lessons demoted, stale ones soft-deleted (with an undo log, reviewed one-by-one, never "yes to all"). This is the pruning inverse of "bank the lesson," and it is essential: an ever-growing prohibition list degrades every agent that reads it (see the degradation diagnostic in [[ceremonies/multi-agent-contract|multi-agent-contract]]). The lessons base is a deliverable that must be kept lean, not an append-only log.
+Every deep audit re-validates the lessons base and the tripwire registry against current code: contradicted lessons demoted, stale ones soft-deleted (with an undo log, reviewed one-by-one, never "yes to all"). This is the pruning inverse of "bank the lesson," and it is essential: an ever-growing prohibition list degrades every agent that reads it (see the degradation diagnostic in [multi-agent-contract](./multi-agent-contract.md)). The lessons base is a deliverable that must be kept lean, not an append-only log.
 
 *Adapted from ECC `config-gc`, `continuous-learning-v2`.*
 
@@ -106,6 +108,6 @@ The live source beats any doc. Recon the real tree, the real ceremony text, the 
 Save the resume and the changes ledger every change; nothing half-reconciled at a stop. Continuity is a deliverable.
 
 ---
-*Gatekeeper Ceremony: the conformance gate and retro flywheel of Orchestration OS. The meta-layer sibling of [[ceremonies/build-ceremony|build-ceremony]] and [[ceremonies/operator-ceremony|operator-ceremony]]; the gate at the end of [[ceremonies/factory-ceremony|factory-ceremony]]. Living document: its own flywheel amends it. Adapted from ECC (MIT, Affaan Mustafa).*
+*Gatekeeper Ceremony: the conformance gate and retro flywheel of Orchestrator OS. The meta-layer sibling of [build-ceremony](./build-ceremony.md) and [operator-ceremony](./operator-ceremony.md); the gate at the end of [factory-ceremony](./factory-ceremony.md). Living document: its own flywheel amends it. Adapted from ECC (MIT, Affaan Mustafa).*
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

@@ -2,7 +2,7 @@
 
 *Stand up a categorized library of reusable subagent briefs: one folder per domain, a category index that lists every member so nothing orphans, path-explicit links, the two-library rule, and flat execution copies in the repo.*
 
-← [[setups/00_SETUPS_INDEX|00_SETUPS_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_SETUPS_INDEX](./00_SETUPS_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
 ---
 
@@ -74,6 +74,8 @@ Solid arrows down the canonical side are the index-to-member graph: the top inde
 
    Keep the body to the charter, when-to-use, and method. No personal data, no secrets, no machine paths.
 
+The three fields above are the floor. Optional frontmatter the harness also reads: `model` (pin a tier, for example `model: sonnet`), `disallowedTools` (subtract specific tools from the allowed set, for example to keep a reviewer read-only), and `skills` (the skills this agent may invoke). Add them when a role needs them.
+
 5. **Reconcile the index in the same change.** Add the brief's row to its category index, and confirm the brief footer links back up to that index. The rule is two-way and absolute: the index lists the member so it has an inbound link, and the member links back so you can climb up. A brief added without its index row is an orphan.
 
 6. **Link path-explicit, always.** Agent basenames repeat across the canonical library, the external reference, and the repo execution copy. A bare `[[code-reviewer]]` mis-resolves silently. Link by full path with a display alias every time:
@@ -98,8 +100,8 @@ Solid arrows down the canonical side are the index-to-member graph: the top inde
 
 ## Related
 
-- [[agents/the-agent-library-pattern|the-agent-library-pattern]]: the full pattern and the reasoning behind every rule above.
-- [[agents/00_AGENTS_INDEX|00_AGENTS_INDEX]]: the live top index this guide builds.
-- [[hooks/README|README]]: make the zero-orphan and naming rules un-forgettable by running them as code.
+- [the-agent-library-pattern](../agents/the-agent-library-pattern.md): the full pattern and the reasoning behind every rule above.
+- [00_AGENTS_INDEX](../agents/00_AGENTS_INDEX.md): the live top index this guide builds.
+- [README](../hooks/README.md): make the zero-orphan and naming rules un-forgettable by running them as code.
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

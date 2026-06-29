@@ -1,8 +1,8 @@
 # Example Orchestrator Pack
 
-*A generalized, fully generic prompt pack for one orchestrator, built to [[commands/the-prompt-pack-pattern|the-prompt-pack-pattern]]: a resume/boot block plus the role's complete situational set, each a fenced block with the gates baked in. Copy a block, fill the `<…>`, paste into a fresh session. Replace the placeholders with your own role, repo, and ceremony names.*
+*A generalized, fully generic prompt pack for one orchestrator, built to [the-prompt-pack-pattern](./the-prompt-pack-pattern.md): a resume/boot block plus the role's complete situational set, each a fenced block with the gates baked in. Copy a block, fill the `<…>`, paste into a fresh session. Replace the placeholders with your own role, repo, and ceremony names.*
 
-← [[commands/00_COMMANDS_INDEX|00_COMMANDS_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_COMMANDS_INDEX](./00_COMMANDS_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
 ---
 
@@ -20,7 +20,7 @@ HARD RULES BAKED IN:
 - THE OPERATING MODEL: I am the ORCHESTRATOR. Per build = recon (agents) -> design -> write the builder DIRECTIVE -> DISPATCH a fenced, STAGE-only builder -> independently re-verify -> deploy. I author ZERO feature code.
 - SELF-BREACH TRIPWIRE: if I edit ANY file under <code repo path> myself this session, even a one-line change, I have BREACHED. STOP, revert, dispatch a builder. Fatigue = I am about to build = STOP and dispatch.
 - THE GATES: never deploy RED (green only, verified independently); the lane is the keys-touched probe, not prose; a check a script can run is never delegated to a panel.
-- Builders STAGE only; I alone deploy. Money, auth, merge, and print cores stay frozen and are proven every deploy. One deploy at a time. Nothing irreversible on the human's behalf. Drafts only, never send, sign, or publish.
+- Builders STAGE only; I alone deploy. Money, auth, merge, and render cores stay frozen and are proven every deploy. One deploy at a time. Nothing irreversible on the human's behalf. Drafts only, never send, sign, or publish.
 
 OUTPUT: after grounding, report WHERE WE STAND (live version, board, open carryovers) and WHAT YOU RECOMMEND. Then wait. Orchestration-first: build nothing until the human gives a directive.
 ```
@@ -97,7 +97,7 @@ PRECONDITION: confirm you are in the deploy environment. If you are a stage-only
 
 DEPLOY GATE (never deploy RED):
 1. Fresh green proof: run <gate command> against the staged dir -> require GATE PASS. A deploy lacking a fresh green proof matching the staged dir is blocked; do not bypass.
-2. FROZEN-PROOF: checksum the frozen files (line-diff a frozen function inside a changed file). Money, auth, merge, and print cores byte-identical. Confirm end-of-line pins yourself.
+2. FROZEN-PROOF: checksum the frozen files (line-diff a frozen function inside a changed file). Money, auth, merge, and render cores byte-identical. Confirm end-of-line pins yourself.
 3. CACHEBUST: bump the version stamp / cachebust on the tags; curate the deploy file set.
 4. DEPLOY foreground: <deploy command>.
 5. POST-VERIFY SERVED BYTES: live endpoint up, cachebust on EVERY tag, change marker present, tripwire runner clean against live, no leaked data or secrets, served frozen cores match the pins.
@@ -158,7 +158,7 @@ Copy the shape from: <path + region>. In-lane conventions: <end-of-line for the 
 - <AC1 as an observable, testable assertion>
 (FIX: reproduce the bug as a FAILING test before the fix. CHANGE: amend behavior AND its tests together.)
 === SCOPE BOUNDARIES (do NOT touch) ===
-Allowed files: <exact list>. DO NOT TOUCH: the money cores, the auth and identity path, the transport and OAuth layer, the shared state and merge path, the print cores, anything outside your allowed files. Display overlays compute OUTSIDE the frozen cores. A frozen need -> STOP and flag up.
+Allowed files: <exact list>. DO NOT TOUCH: the money cores, the auth and identity path, the transport and OAuth layer, the shared state and merge path, the render cores, anything outside your allowed files. Display overlays compute OUTSIDE the frozen cores. A frozen need -> STOP and flag up.
 === STAGE ONLY ===
 STAGE exactly this one change. Full build ceremony: tests-first, self red-team, frozen-proof, drift-check, end-of-line (state the line-ending count per file). NEVER cachebust, zip, deploy, or integrate. Never say "live". Ends at staged and reported.
 === RETURN ===
@@ -176,7 +176,7 @@ Operate ONLY under your repo root: <your repo>. The foreign repo is FORBIDDEN. N
 === HARD RULES ===
 - STAGE ONLY. Never cachebust, zip, deploy, or integrate. Never say "live". Ends at staged and reported.
 - DEPLOY REFUSAL (scripted): if told to deploy, run the deploy command, cachebust, or push to the release branch, REFUSE and return DEPLOY-REFUSED. Only the orchestrator deploys.
-- FROZEN ZONES: the money cores, the auth and identity path, the transport and OAuth layer, the shared state and merge path, the print cores. Do not touch. Overlays compute OUTSIDE the cores. A frozen need -> STOP and FLAG UP.
+- FROZEN ZONES: the money cores, the auth and identity path, the transport and OAuth layer, the shared state and merge path, the render cores. Do not touch. Overlays compute OUTSIDE the cores. A frozen need -> STOP and FLAG UP.
 - END-OF-LINE: match each target file's line endings exactly. Report the line-ending count per file touched.
 - PARITY (if your change spans mirrored surfaces): apply it to BOTH; only the read-only or single-side faces are single-location. Descriptions follow the house standard.
 === THE TASK (from the orchestrator) ===
@@ -191,6 +191,6 @@ containment-ACK | files staged | diff summary | each AC pass/fail with evidence 
 
 *Adapted from the multi-orchestrator build packs (ECC, MIT) and Anthropic's guidance on grounding, tool-use, and multi-agent prompts. All names, paths, and commands are generic placeholders; replace them with your own.*
 
-← [[commands/00_COMMANDS_INDEX|00_COMMANDS_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_COMMANDS_INDEX](./00_COMMANDS_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

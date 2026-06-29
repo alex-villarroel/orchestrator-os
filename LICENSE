@@ -27,5 +27,9 @@ hooks, and scripts). The prose and documentation (ceremonies, the standard,
 guides, rules, setups, and docs) are licensed separately under
 Creative Commons Attribution 4.0 International. See LICENSE-docs.
 
-Portions of this project are adapted from Everything Claude Code (ECC) by
-Affaan Mustafa, used under the MIT License. See CREDITS.md.
+This project adapts patterns from Everything Claude Code (ECC) by Affaan
+Mustafa, published under the MIT License at https://github.com/affaan-m/ECC .
+ECC's structural and methodological patterns were re-expressed here in original
+wording rather than copied verbatim. Where any MIT-licensed text or code is
+reused, ECC's original copyright and permission notice are retained alongside
+it. Acknowledgement and the upstream license link are kept in CREDITS.md.

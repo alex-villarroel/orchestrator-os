@@ -2,9 +2,9 @@
 
 *The factory pattern: how a raw idea becomes a new orchestrator, minted from one shared standard, then gated and handed off to run on its own.*
 
-← [[ceremonies/00_CEREMONIES_INDEX|00_CEREMONIES_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_CEREMONIES_INDEX](./00_CEREMONIES_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
-Related: [[ceremonies/gatekeeper-ceremony|gatekeeper-ceremony]] · [[ceremonies/multi-agent-contract|multi-agent-contract]] · [[ceremonies/operator-ceremony|operator-ceremony]] · [[ceremonies/build-ceremony|build-ceremony]]
+Related: [gatekeeper-ceremony](./gatekeeper-ceremony.md) · [multi-agent-contract](./multi-agent-contract.md) · [operator-ceremony](./operator-ceremony.md) · [build-ceremony](./build-ceremony.md)
 
 ---
 
@@ -47,7 +47,7 @@ Generate every birth component the standard names, tailored to the real idea, to
 - **Root files:** the operating-system doc, a resume prompt, a map-of-content index, and a memory file.
 - **Work folders:** reference, missions, plans, designs, directives, a daily contract, status, reports, handoffs, ceremonies, and archives, with `Active/` and `Complete/` on the lifecycle folders.
 - **Infra folders:** `commands/` (the full prompt pack, not a thin stub), `agents/` (point at the relevant categories of the shared agent library path-explicit, and separately at any external reference library; the two are distinct libraries), `hooks/`, `setups/`, and a secrets-rotation inventory and schedule (**never values**).
-- **A tailored [[ceremonies/build-ceremony|build-ceremony]] and [[ceremonies/multi-agent-contract|multi-agent-contract]]** for the new orchestrator's domain.
+- **A tailored ceremony ([build-ceremony](./build-ceremony.md) for code, [operator-ceremony](./operator-ceremony.md) for an ongoing domain) plus its [multi-agent-contract](./multi-agent-contract.md)** for the new orchestrator's domain.
 - **A boot handoff** and **the builder** (for code: a repo brief plus the repo's agent config, a project instructions file, and a proposed ignore file; for non-code: the sub-agent roster).
 
 Every folder gets a README or index. Name the frozen and forbidden zones **at birth**, before the builder writes a line.
@@ -56,7 +56,7 @@ Every folder gets a README or index. Name the frozen and forbidden zones **at bi
 Fill every index in the right section (start-here, home, table of contents, the atlas with a row and a count, the directory) **and** make each new folder's index wikilink-**list** its members, so every new file has an inbound link. Use path-explicit links `[[Folder/Name|Name]]` for shared basenames (a bare `[[Name]]` resolves to only one same-named file; a query-generated list makes no graph edge). **Verify zero orphans before the gate.** Index rows alone are not integration. Do not edit the gatekeeper-owned standard; **propose** its roster row and let the gatekeeper fold it at the gate.
 
 ### 5. Gate
-Hand to the gatekeeper for the conformance gate (the standard's checklist plus the builder spec plus the ceremony pattern, on both the vault and the repo side). Fix any red. Then the owner approves. Nothing goes live un-gated. (See [[ceremonies/gatekeeper-ceremony|gatekeeper-ceremony]].)
+Hand to the gatekeeper for the conformance gate (the standard's checklist plus the builder spec plus the ceremony pattern, on both the vault and the repo side). Fix any red. Then the owner approves. Nothing goes live un-gated. (See [gatekeeper-ceremony](./gatekeeper-ceremony.md).)
 
 ### 6. Hand off
 The new orchestrator takes its first directive from the owner; the factory steps back. Log it.
@@ -94,7 +94,7 @@ Tailor to the real idea, not a template fill. Recon any existing system the idea
 
 ## The flywheel
 
-Each mint teaches the mold. A pattern that recurs across ideas, a birth component that was missed, a better tailoring: feed it back to the standard through the gatekeeper's flywheel. The factory **proposes** mold improvements; the gatekeeper **owns and folds** them. (See [[ceremonies/gatekeeper-ceremony|gatekeeper-ceremony]].)
+Each mint teaches the mold. A pattern that recurs across ideas, a birth component that was missed, a better tailoring: feed it back to the standard through the gatekeeper's flywheel. The factory **proposes** mold improvements; the gatekeeper **owns and folds** them. (See [gatekeeper-ceremony](./gatekeeper-ceremony.md).)
 
 ---
 
@@ -103,6 +103,6 @@ Each mint teaches the mold. A pattern that recurs across ideas, a birth componen
 Save the resume and the mint log every idea. A half-minted orchestrator is never left registered-but-incomplete (it fails the gate). Continuity is a deliverable.
 
 ---
-*Factory Ceremony: the idea-to-orchestrator pattern of Orchestration OS. Built to the shared orchestrator standard; sibling of [[ceremonies/build-ceremony|build-ceremony]] and [[ceremonies/operator-ceremony|operator-ceremony]]. Living document: the flywheel amends it. Adapted from ECC (MIT, Affaan Mustafa) and Anthropic Claude Code.*
+*Factory Ceremony: the idea-to-orchestrator pattern of Orchestrator OS. Built to the shared orchestrator standard; sibling of [build-ceremony](./build-ceremony.md) and [operator-ceremony](./operator-ceremony.md). Living document: the flywheel amends it. Adapted from ECC (MIT, Affaan Mustafa) and Anthropic Claude Code.*
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

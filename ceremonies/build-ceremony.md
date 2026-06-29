@@ -2,9 +2,9 @@
 
 *The per-change operating spine: how one change goes from idea to verified, shipped artifact safely, every time.*
 
-← [[ceremonies/00_CEREMONIES_INDEX|00_CEREMONIES_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_CEREMONIES_INDEX](./00_CEREMONIES_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
-Related: [[ceremonies/multi-agent-contract|multi-agent-contract]] · [[ceremonies/gatekeeper-ceremony|gatekeeper-ceremony]] · [[ceremonies/factory-ceremony|factory-ceremony]] · [[ceremonies/operator-ceremony|operator-ceremony]]
+Related: [multi-agent-contract](./multi-agent-contract.md) · [gatekeeper-ceremony](./gatekeeper-ceremony.md) · [factory-ceremony](./factory-ceremony.md) · [operator-ceremony](./operator-ceremony.md)
 
 ---
 
@@ -131,7 +131,7 @@ Write the behavioral assertions from the spec **before** the change; watch them 
 
 This is the second mind. A **different mind than the builder** re-runs the load-bearing checks itself, never trusting the self-report:
 
-- **Frozen-proof:** the untouchable cores (see [[ceremonies/gatekeeper-ceremony|gatekeeper-ceremony]] on freeze discipline) are byte-identical to the prior shipped artifact. For a frozen function inside a changed file, confirm its line range falls outside the changed ranges (a windowed text search false-alarms on moved neighbors).
+- **Frozen-proof:** the untouchable cores (see [gatekeeper-ceremony](./gatekeeper-ceremony.md) on freeze discipline) are byte-identical to the prior shipped artifact. For a frozen function inside a changed file, confirm its line range falls outside the changed ranges (a windowed text search false-alarms on moved neighbors).
 - **Drift-check:** only the intended files differ and exactly the intended new keys appeared; the diff matches the design, no scope creep.
 - **Behavioral verify:** for any UI or public-surface change, drive the served artifact and confirm the visible outcome actually happens, console clean.
 - **Byte-exactness:** the line-ending convention of each touched file is preserved (verify it yourself; builders mis-report this constantly), and a syntax check passes on each edited file.
@@ -147,8 +147,8 @@ This is the second mind. A **different mind than the builder** re-runs the load-
 Run the deterministic gate on the staged artifact. **No panel verdict counts toward shipping until every scripted line is green:**
 
 - **Artifact asserts:** the file whitelist, the entry-count baseline, this change's content markers, and every standing assert.
-- **Cache-bust matrix:** client assets changed means bump the version string everywhere and assert the new version on every tag plus zero old-version strings remain; a server-only change asserts no bust (over-busting is drift too).
-- **Tripwire runner:** every active tripwire row green against the staged artifact (see [[ceremonies/gatekeeper-ceremony|gatekeeper-ceremony]] on the retro flywheel; each fixed bug becomes an exact assert that fires if it returns).
+- **Cache-bust matrix** (web model): client assets changed means bump the version string everywhere and assert the new version on every tag plus zero old-version strings remain; a server-only change asserts no bust (over-busting is drift too). For a non-web domain, substitute the equivalent staleness guard (a cache invalidation, a version pin, a schema-version bump).
+- **Tripwire runner:** every active tripwire row green against the staged artifact (see [gatekeeper-ceremony](./gatekeeper-ceremony.md) on the retro flywheel; each fixed bug becomes an exact assert that fires if it returns).
 - **Secret / PII / leak scan:** search the staged artifact for secret patterns, internal names, and dev artifacts.
 
 A single critical-category failure (money, auth or leakage, delete-sticks, frozen-proof) blocks at 100%; non-critical at a warn threshold. Any red line means no ship.
@@ -157,7 +157,9 @@ A single critical-category failure (money, auth or leakage, delete-sticks, froze
 
 ## Phase 8: Ship (the owner of deploy does this)
 
-The single deploy-owner role ships: package by iterating the prior artifact's entry list and copying each file from disk (append any new file first), then deploy in the foreground. Deploy is owned by exactly one role, never a builder. A reproducible package plus a foreground deploy is the only way served bytes can be verified.
+*Phases 7 and 8 are written as one worked deploy model: a single bundled web artifact served from static files. The shape is general (package, run the deterministic pre-commit checks, commit through one integrator, verify the live result); substitute your domain's own irreversible-commit step for the web specifics (a package publish, a database migration apply, a release tag, an external send).*
+
+The single deploy-owner role ships: package by iterating the prior artifact's entry list and copying each file from disk (append any new file first), then deploy in the foreground. Deploy is owned by exactly one role, never a builder. A reproducible package plus a foreground deploy is what lets the served bytes be verified in this web model; the general principle is that the commit path is reproducible and its result is observable after the fact.
 
 Then **post-verify served bytes:** hit the live surface, confirm health, confirm the new version on every tag, confirm the change's marker is present in the *served* bytes, and run the public-surface tripwire rows plus a PII scan against the live surface. "Shipped" means served-bytes verified, full stop.
 
@@ -167,7 +169,7 @@ Optionally **soak:** a timed re-check loop against a pre-deploy baseline (health
 
 ## Phase 9: Retro (bank the lesson)
 
-After any Critical ship, any incident, or on cadence: turn misses into lessons, lessons into rules, rules into ceremony changes. Every fixed defect, leak, or near-miss adds a **tripwire row** (an exact assert that fires if the bug returns) and, where the bug is not greppable, a **behavioral regression test** written failing the moment it is found. Every new rule names its enforcement point or it is a lesson, not a rule. The full flywheel mechanics live in [[ceremonies/gatekeeper-ceremony|gatekeeper-ceremony]].
+After any Critical ship, any incident, or on cadence: turn misses into lessons, lessons into rules, rules into ceremony changes. Every fixed defect, leak, or near-miss adds a **tripwire row** (an exact assert that fires if the bug returns) and, where the bug is not greppable, a **behavioral regression test** written failing the moment it is found. Every new rule names its enforcement point or it is a lesson, not a rule. The full flywheel mechanics live in [gatekeeper-ceremony](./gatekeeper-ceremony.md).
 
 On a cadence, run a **whole-app deep audit** (security-exposure, reconciliation, public-surface, code-review sweep, drift). Per-change ceremonies see the diff; only the deep audit sees accumulated state.
 
@@ -187,6 +189,6 @@ On a cadence, run a **whole-app deep audit** (security-exposure, reconciliation,
 - [ ] **Retro**: tripwire row on any fix; deep audit on cadence
 
 ---
-*Build Ceremony: the per-change spine of Orchestration OS. Living document: the retro flywheel amends it. Adapted from ECC (MIT, Affaan Mustafa), Anthropic Claude Code subagent patterns, and Cognition multi-agent research.*
+*Build Ceremony: the per-change spine of Orchestrator OS. Living document: the retro flywheel amends it. Adapted from ECC (MIT, Affaan Mustafa), Anthropic Claude Code subagent patterns, and Cognition multi-agent research.*
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

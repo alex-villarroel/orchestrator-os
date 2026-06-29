@@ -2,13 +2,13 @@
 
 *The mold every orchestrator is minted from, and the gate every orchestrator passes to be born. Start here, then read the full standard.*
 
-← [[the-standard/00_STANDARD_INDEX|00_STANDARD_INDEX]] · [[00_MOC|Orchestration OS]]
+← [Orchestrator OS](../00_MOC.md)
 
 ---
 
 ## The standard
 
-- **[[the-standard/orchestrator-standard|orchestrator-standard]]** - the full mold, generalized. The invariant shape (persistent orchestrator + disposable builders), the birth checklist, the folder taxonomy, the dual-location builder, the ceremony + contract skeleton, the mint algorithm, the conformance gate, the cross-link / no-orphan discipline, and the two-library agent rule.
+- **[orchestrator-standard](./orchestrator-standard.md)** - the full mold, generalized. The invariant shape (persistent orchestrator + disposable builders), the birth checklist, the folder taxonomy, the dual-location builder, the ceremony + contract skeleton, the mint algorithm, the conformance gate, the cross-link / no-orphan discipline, and the two-library agent rule.
 
 ## How to use it
 
@@ -18,6 +18,6 @@
 
 ---
 
-← back to [[00_MOC|Orchestration OS]]
+← back to [Orchestrator OS](../00_MOC.md)
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

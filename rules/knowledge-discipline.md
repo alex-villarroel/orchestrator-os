@@ -2,7 +2,7 @@
 
 *The contract for a living knowledge base shared by many agents. It governs how every session SAVES, so the base stays clean instead of rotting back into a pile of duplicates and orphans. Binding on every session that can write here: orchestrators, builders, and any subagent.*
 
-← [[rules/00_RULES_INDEX|00_RULES_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_RULES_INDEX](./00_RULES_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
 > **The knowledge base is a knowledge directory, NOT a working directory. We work OUT of it, not IN it.**
 > Everyone can save knowledge here, but access comes with this contract. It is what keeps a freshly organized base from decaying.
@@ -33,4 +33,4 @@ Every dispatch to a subagent carries this contract. A subagent may save knowledg
 
 *Adapted from a production knowledge-base contract and PKM plus software-reliability disciplines (ECC MIT, Anthropic, Cognition).*
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

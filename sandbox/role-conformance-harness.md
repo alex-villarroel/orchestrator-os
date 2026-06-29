@@ -2,7 +2,7 @@
 
 *A two-step test bed for putting roles (resumes, ceremonies, contracts) through the ringer: does each role act to its charter, follow its ceremony to a T, keep its files current, and never break its rules, and how long does that hold before it drifts? The agent that runs the role never grades itself.*
 
-← [[sandbox/00_SANDBOX_INDEX|00_SANDBOX_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_SANDBOX_INDEX](./00_SANDBOX_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
 *Adapted from a two-step role-conformance sandbox (run never equals grade) and ECC (MIT).*
 
@@ -24,7 +24,7 @@ The build-agent never grades its own work. Separation of run and grade is the wh
 
 A fresh agent boots off the role's charter (resume plus ceremony plus contract) and is handed a **multi-step task built to tempt the role's failure mode**. It works in **describe / dry mode**: it states each action it would take and produces the artifacts it would hand off, with no real edits or deploys. The multi-step shape is deliberate, because a role often starts in character and slips a few steps in. A single step would never surface drift.
 
-> **Read-only at the tool layer, not just by instruction.** A describe-mode instruction alone is not enough. In one validation run an agent edited live files despite being told it was in describe mode. Spawn run-agents with **read-only tools**, or point them at a **throwaway worktree**, so describe mode cannot leak into real writes. Never trust the instruction by itself.
+> **Read-only at the tool layer, not just by instruction.** A describe-mode instruction alone is not enough. In one validation run an agent edited live files despite being told it was in describe mode. Spawn run-agents with **read-only tools** (in Claude Code, subtract the write tools with `disallowedTools`), or point them at a **throwaway worktree** (`isolation: worktree`, so any edit lands in a scratch copy that is discarded), so describe mode cannot leak into real writes. Never trust the instruction by itself.
 
 ### 2. EVALUATE
 
@@ -74,4 +74,4 @@ Per campaign:
 
 Changes land through the governing flywheel, never directly from a single run.
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

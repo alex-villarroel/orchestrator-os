@@ -2,7 +2,7 @@
 
 *The full folder tree of a single orchestrator. The root files, the work folders with their Active/Complete lifecycle, and the five infra folders, plus how to create it.*
 
-← [[setups/00_SETUPS_INDEX|00_SETUPS_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_SETUPS_INDEX](./00_SETUPS_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
 ---
 
@@ -80,12 +80,12 @@ The five lifecycle folders each contain an `Active/` and a `Complete/` subfolder
 
 ## Prerequisites
 
-- A chosen `<Name>` for the orchestrator that follows [[rules/naming-conventions|naming-conventions]] (Title-Case domain folders, lowercase infra and role/data subfolders, `00_<NAME>_INDEX.md` for in-folder indexes).
-- The mold in hand: [[the-standard/orchestrator-standard|orchestrator-standard]] sections 3, 3a, and 3.6 are the authority for this tree.
+- A chosen `<Name>` for the orchestrator that follows [naming-conventions](../rules/naming-conventions.md) (Title-Case domain folders, lowercase infra and role/data subfolders, `00_<NAME>_INDEX.md` for in-folder indexes).
+- The mold in hand: [orchestrator-standard](../the-standard/orchestrator-standard.md) sections 3, 3a, and 3.6 are the authority for this tree.
 
 ## Setup steps
 
-1. **Pick the path.** Either copy [[orchestrators/example-orchestrator|example-orchestrator]] wholesale and rename, or build the tree from scratch with the script below. Copying is faster and starts you compliant.
+1. **Pick the path.** Either copy [example-orchestrator](../orchestrators/example-orchestrator.md) wholesale and rename, or build the tree from scratch with the script below. Copying is faster and starts you compliant.
 2. **Create the root and root files.** Make `<Name>/` and add the four root files: `Operating System.md`, `RESUME_PROMPT.md`, `<Name> MOC.md`, `MEMORY.md`.
 3. **Create the work folders.** Add `REFERENCE/`, `STATUS/`, `REPORTS/`, `HANDOFFS/`, `CEREMONIES/`, `Changes/`, `Archives/` as flat folders.
 4. **Add the lifecycle subfolders.** For each of `Daily Contract/`, `DIRECTIVES/`, `MISSIONS/`, `DESIGNS/`, `PLANS/`, create an `Active/` and a `Complete/` subfolder inside it.
@@ -117,8 +117,8 @@ touch "$NAME/Operating System.md" "$NAME/RESUME_PROMPT.md" "$NAME/$NAME MOC.md" 
 
 ## Related
 
-- [[the-standard/orchestrator-standard|orchestrator-standard]] - sections 3, 3a, 3.6 define this tree.
-- [[rules/naming-conventions|naming-conventions]] - casing, indexes, and path-explicit links.
-- [[orchestrators/example-orchestrator|example-orchestrator]] - a worked tree you can copy.
+- [orchestrator-standard](../the-standard/orchestrator-standard.md) - sections 3, 3a, 3.6 define this tree.
+- [naming-conventions](../rules/naming-conventions.md) - casing, indexes, and path-explicit links.
+- [example-orchestrator](../orchestrators/example-orchestrator.md) - a worked tree you can copy.
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

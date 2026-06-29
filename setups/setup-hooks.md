@@ -2,7 +2,7 @@
 
 *Wire the enforcement hooks into a real setup: copy the scripts, register them in settings.json, keep the kill switch handy, test each decision from the shell, then soak warn-first before you flip anything to block.*
 
-← [[setups/00_SETUPS_INDEX|00_SETUPS_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_SETUPS_INDEX](./00_SETUPS_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
 ---
 
@@ -39,7 +39,7 @@ PreToolUse fires before the tool and is the only place to block or ask. PostTool
 
 2. **Decide the scope.** User scope (`~/.claude/settings.json`) applies to every session on the machine, good for broad safety nets like the dangerous-transform guard. Repo scope (`.claude/settings.json` in the project) applies only inside that repo, good for repo-specific rules like the frozen zone and the deploy gate. Keep the scope as narrow as the rule.
 
-3. **Register the hooks block in settings.json.** Hooks live under a `hooks` key, grouped by event. Each entry has a `matcher` (a regex over the tool name) and a list of commands. Use absolute paths or a `$VAR` the harness resolves; the `<hooks-dir>` below stands in for your install root:
+3. **Register the hooks block in settings.json.** Hooks live under a `hooks` key, grouped by event. Each entry has a `matcher` (a regex over the tool name) and a list of commands. Use absolute paths or a `$VAR` the harness resolves; the `<hooks-dir>` below stands in for your install root (for example `~/.claude/hooks` for a user-scope install, or `.claude/hooks` for a repo-scope install):
 
    ```json
    {
@@ -108,7 +108,7 @@ PreToolUse fires before the tool and is the only place to block or ask. PostTool
      | HOOKS_OFF=1 node dangerous-transform.js
    ```
 
-6. **Soak warn-first, then flip to block.** Do not wire everything to `deny` on day one. Block only the clear-cut cases first (the confirmed EOL flip, the blind in-place transform). Run the rest as `ask` for a few sessions to tune the matchers against real traffic, then tighten to `deny` once the patterns are clean. The deploy gate is the exception: it is fail-closed from the start because a bad deploy is irreversible.
+6. **Soak warn-first, then flip to block.** Do not wire everything to `deny` on day one. Block only the clear-cut cases first (the confirmed EOL flip, the blind in-place transform). Run the rest as `ask` for a few sessions to tune the matchers against real traffic, then tighten to `deny` once the patterns are clean. The deploy gate is the exception: it is fail-closed from the start because a bad deploy is irreversible. Before you enable the deploy gate, set `DEPLOY_COMMAND_PATTERN` to your real deploy command (for example `npm run deploy` or your release script). The shipped default also matches a bare `deploy` verb, which is deliberately broad and will catch unrelated commands that contain the word; pin it to the actual command so the gate fires on the real deploy and nothing else.
 
 ## You are done when
 
@@ -120,8 +120,8 @@ PreToolUse fires before the tool and is the only place to block or ask. PostTool
 
 ## Related
 
-- [[hooks/README|README]]: the full enforcement layer, the control contract, the decision schema, and every script.
-- [[hooks/00_HOOKS_INDEX|00_HOOKS_INDEX]]: the index of the individual hook scripts.
-- [[setups/setup-agents|setup-agents]] and [[setups/setup-commands|setup-commands]]: the building blocks the hooks protect.
+- [README](../hooks/README.md): the full enforcement layer, the control contract, the decision schema, and every script.
+- [00_HOOKS_INDEX](../hooks/00_HOOKS_INDEX.md): the index of the individual hook scripts.
+- [setup-agents](./setup-agents.md) and [setup-commands](./setup-commands.md): the building blocks the hooks protect.
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

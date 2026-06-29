@@ -2,9 +2,9 @@
 
 *One idea, followed all the way through the system: a maintainer dreams up a small app, the factory mints an orchestrator for it, the gatekeeper gates it, and the new orchestrator runs its first change end to end.*
 
-← [[examples/00_EXAMPLES_INDEX|00_EXAMPLES_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_EXAMPLES_INDEX](./00_EXAMPLES_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
-Related: [[ceremonies/factory-ceremony|factory]] · [[ceremonies/gatekeeper-ceremony|gatekeeper]] · [[ceremonies/build-ceremony|build ceremony]] · [[hooks/00_HOOKS_INDEX|hooks]] · [[orchestrators/example-orchestrator|example orchestrator]]
+Related: [factory](../ceremonies/factory-ceremony.md) · [gatekeeper](../ceremonies/gatekeeper-ceremony.md) · [build ceremony](../ceremonies/build-ceremony.md) · [hooks](../hooks/00_HOOKS_INDEX.md) · [example orchestrator](../orchestrators/example-orchestrator.md)
 
 ---
 
@@ -57,9 +57,9 @@ The dotted line is the point of the whole thing: what we learn on the last chang
 ---
 
 ## Stage 1: The factory mints an orchestrator
-### Pattern: [[ceremonies/factory-ceremony|factory ceremony]]
+### Pattern: [factory ceremony](../ceremonies/factory-ceremony.md)
 
-The owner does not start writing code. Every idea starts at the [[ceremonies/factory-ceremony|factory]], which frames the idea and mints a tailor-made orchestration system for it from the one shared [[the-standard/orchestrator-standard|orchestrator standard]].
+The owner does not start writing code. Every idea starts at the [factory](../ceremonies/factory-ceremony.md), which frames the idea and mints a tailor-made orchestration system for it from the one shared [orchestrator standard](../the-standard/orchestrator-standard.md).
 
 **Step 0, classify.** The factory states its line before acting:
 
@@ -79,7 +79,7 @@ The factory never invents a constraint the owner has to set; the public-share de
 
 **2. Frame.** One page, shown to the owner: the orchestrator's domain, its lanes, its roles, its model routing, and its safety gate. Frame before you mint.
 
-**3. Mint from the standard (tailored, never copied).** The factory generates the full folder set the standard names. This is the same shape every orchestrator in the system carries (see [[orchestrators/example-orchestrator|the example orchestrator]] for the annotated version):
+**3. Mint from the standard (tailored, never copied).** The factory generates the full folder set the standard names. This is the same shape every orchestrator in the system carries (see [the example orchestrator](../orchestrators/example-orchestrator.md) for the annotated version):
 
 ```
 Pantry Pal Orchestrator/
@@ -106,7 +106,7 @@ Pantry Pal Orchestrator/
   secrets-rotation/            # secret inventory + schedule (NEVER values)
 ```
 
-Alongside the folders it mints a tailored [[ceremonies/build-ceremony|build ceremony]] and [[ceremonies/multi-agent-contract|multi-agent contract]] for the recipe domain, a boot handoff, and the builder spec (a repo brief, the repo's agent config, a project instructions file, and a proposed ignore file). The **frozen** shopping-list math and the **forbidden** zones are named here, at birth, before the builder writes a line.
+Alongside the folders it mints a tailored [build ceremony](../ceremonies/build-ceremony.md) and [multi-agent contract](../ceremonies/multi-agent-contract.md) for the recipe domain, a boot handoff, and the builder spec (a repo brief, the repo's agent config, a project instructions file, and a proposed ignore file). The **frozen** shopping-list math and the **forbidden** zones are named here, at birth, before the builder writes a line.
 
 **4. Register and cross-link.** The factory fills every index in the right section and makes the new folder indexes wikilink-list their members, so every new file has an inbound link and the graph has zero orphans. It uses path-explicit links for shared basenames. It does **not** edit the gatekeeper-owned standard; it *proposes* a roster row and lets the gatekeeper fold it at the gate.
 
@@ -124,9 +124,9 @@ flowchart LR
 ---
 
 ## Stage 2: The gatekeeper runs the conformance gate
-### Pattern: [[ceremonies/gatekeeper-ceremony|gatekeeper ceremony]]
+### Pattern: [gatekeeper ceremony](../ceremonies/gatekeeper-ceremony.md)
 
-The factory hands the minted Pantry Pal Orchestrator to the [[ceremonies/gatekeeper-ceremony|gatekeeper]]. Nothing goes live un-gated. A missing box means not born.
+The factory hands the minted Pantry Pal Orchestrator to the [gatekeeper](../ceremonies/gatekeeper-ceremony.md). Nothing goes live un-gated. A missing box means not born.
 
 **The conformance gate checklist** the gatekeeper runs:
 
@@ -163,9 +163,9 @@ On the first pass the gatekeeper finds one red: a `DESIGNS/Complete/` subfolder 
 ---
 
 ## Stage 3: The orchestrator runs its first change
-### Pattern: [[ceremonies/build-ceremony|build ceremony]]
+### Pattern: [build ceremony](../ceremonies/build-ceremony.md)
 
-The Pantry Pal Orchestrator now drives one change through the [[ceremonies/build-ceremony|build ceremony]] spine. The first directive is a public-share-link feature, which trips a safety floor, so the back half of the ceremony bites hard.
+The Pantry Pal Orchestrator now drives one change through the [build ceremony](../ceremonies/build-ceremony.md) spine. The first directive is a public-share-link feature, which trips a safety floor, so the back half of the ceremony bites hard.
 
 ```mermaid
 flowchart LR
@@ -184,7 +184,7 @@ flowchart LR
 The change is a new capability (FEATURE). It would be Standard by file count, but it exposes recipe data on a **public surface**, and public is a hard Critical floor. Doubt goes to the higher lane. The orchestrator records the fact that locked the lane: *public share link.*
 
 ### Recon
-*Maps the real bytes before anything is designed.* See [[ceremonies/build-ceremony|build ceremony]] Phase 1, and the [[agents/recon-cartographer|recon cartographer]].
+*Maps the real bytes before anything is designed.* See [build ceremony](../ceremonies/build-ceremony.md) Phase 1, and the [recon cartographer](../agents/Coding/recon-cartographer.md).
 
 The orchestrator dispatches a recon pass over the app repo. It returns build-ready anchors, the data model, the reference exemplar to mirror, the per-file line-ending convention, and a **keys-touched manifest**. The keys-touched probe finds that a recipe record already carries a private `notes` field and a `householdId`. Risk flags are set from what recon found, not what the request claimed: *this feature can leak a private field if the share view is not narrowed.*
 
@@ -196,7 +196,7 @@ There is already an exemplar in the repo: a read-only printable recipe view. The
 ### Red panel
 *Refute the plan before it is built.* See Phase 4.
 
-Because the change touches a public surface, the orchestrator dispatches the [[agents/red-correctness|correctness]] lens plus a surface lens, fed the spec and design only, never the implementer's reasoning, and told to refute.
+Because the change touches a public surface, the orchestrator dispatches the [correctness](../agents/Coding/red-correctness.md) lens plus a surface lens, fed the spec and design only, never the implementer's reasoning, and told to refute.
 
 The surface lens lands a confirmed finding with an anchor and a concrete counterexample:
 
@@ -229,14 +229,14 @@ The builder writes the behavioral assertions from the spec first, watches them g
 
 ### Stage
 
-The change is staged for the owner's go. (This walkthrough stops at stage; the ship and post-verify steps of the [[ceremonies/build-ceremony|build ceremony]] would follow on the owner's word.)
+The change is staged for the owner's go. (This walkthrough stops at stage; the ship and post-verify steps of the [build ceremony](../ceremonies/build-ceremony.md) would follow on the owner's word.)
 
 ---
 
 ## Stage 4: A hook catches a mistake
-### Pattern: [[hooks/00_HOOKS_INDEX|hooks]]
+### Pattern: [hooks](../hooks/00_HOOKS_INDEX.md)
 
-Enforcement is not left to memory. During the build, the harness ran the [[hooks/00_HOOKS_INDEX|hooks]] on lifecycle events. Two of them earned their keep on this change.
+Enforcement is not left to memory. During the build, the harness ran the [hooks](../hooks/00_HOOKS_INDEX.md) on lifecycle events. Two of them earned their keep on this change.
 
 **The frozen-zone hook.** While exploring, the builder tried to "tidy" a helper that happened to live inside the frozen shopping-list math file. The `frozen-zone.js` hook fired on the Edit, matched the configurable frozen-file list, and returned an **ASK** decision: this file is frozen, confirm before editing. The builder backed off and routed the tidy elsewhere. The frozen math stayed byte-identical, which is exactly why the verify step's frozen-proof passed cleanly.
 
@@ -256,16 +256,16 @@ Posture by blast radius: both reversible-with-uncertainty cases were handled gen
 ---
 
 ## Stage 5: The retro feeds a lesson back to the standard
-### Pattern: [[ceremonies/gatekeeper-ceremony|gatekeeper retro flywheel]]
+### Pattern: [gatekeeper retro flywheel](../ceremonies/gatekeeper-ceremony.md)
 
-After the change, the retro asks: what did we learn, and where does it get teeth? See Phase 9 of the [[ceremonies/build-ceremony|build ceremony]] and the flywheel in the [[ceremonies/gatekeeper-ceremony|gatekeeper ceremony]].
+After the change, the retro asks: what did we learn, and where does it get teeth? See Phase 9 of the [build ceremony](../ceremonies/build-ceremony.md) and the flywheel in the [gatekeeper ceremony](../ceremonies/gatekeeper-ceremony.md).
 
 The lesson from this change: **a public share view must render from an explicit field allow-list, never a whole-object spread.** The red panel caught it this time, but relying on a panel to catch the same class every time is a lesson, not a rule.
 
 The retro turns it into something enforced. The orchestrator banks two artifacts and **proposes** a standard delta to the gatekeeper (it does not edit the standard itself):
 
 - A **tripwire row**: an exact assert that fails if a share-rendered page ever contains a private field name. It runs at the gate against the staged artifact, and against the live surface after any future ship.
-- A proposed line for the shared [[the-standard/orchestrator-standard|orchestrator standard]]: any orchestrator with a public surface declares its public field allow-list at birth, `enforced_by: red-charter:red-surface` plus the new tripwire.
+- A proposed line for the shared [orchestrator standard](../the-standard/orchestrator-standard.md): any orchestrator with a public surface declares its public field allow-list at birth, `enforced_by: red-charter:red-surface` plus the new tripwire.
 
 Every new rule names its `enforced_by` point or it stays a lesson. The gatekeeper owns and folds the standard delta through the flywheel, on the owner's word. Now the **next** idea that goes through the factory inherits a stricter mold: its mint will ask for a public field allow-list up front, before its builder writes a line.
 
@@ -284,11 +284,11 @@ That dotted line back to the factory is the flywheel closing. The system got str
 
 ## The takeaway
 
-One idea (a recipe organizer) went through the entire system: the [[ceremonies/factory-ceremony|factory]] framed and minted an orchestrator for it from the shared standard, the [[ceremonies/gatekeeper-ceremony|gatekeeper]] gated it, the new orchestrator ran its first change through the [[ceremonies/build-ceremony|build ceremony]] spine, the [[hooks/00_HOOKS_INDEX|hooks]] caught two mistakes a script can catch, and the retro fed a lesson back through the gatekeeper into the standard so the next mint is born stricter. Every stage points at its pattern doc; copy the shapes, swap in your own domain, and the same machine runs for you.
+One idea (a recipe organizer) went through the entire system: the [factory](../ceremonies/factory-ceremony.md) framed and minted an orchestrator for it from the shared standard, the [gatekeeper](../ceremonies/gatekeeper-ceremony.md) gated it, the new orchestrator ran its first change through the [build ceremony](../ceremonies/build-ceremony.md) spine, the [hooks](../hooks/00_HOOKS_INDEX.md) caught two mistakes a script can catch, and the retro fed a lesson back through the gatekeeper into the standard so the next mint is born stricter. Every stage points at its pattern doc; copy the shapes, swap in your own domain, and the same machine runs for you.
 
-See [[orchestrators/example-orchestrator|the example orchestrator]] for the static shape of what gets minted, and [[the-standard/orchestrator-standard|the orchestrator standard]] for the full birth checklist.
+See [the example orchestrator](../orchestrators/example-orchestrator.md) for the static shape of what gets minted, and [the orchestrator standard](../the-standard/orchestrator-standard.md) for the full birth checklist.
 
 ---
-*Example walkthrough of Orchestration OS: one idea through factory, gatekeeper, build ceremony, hooks, and retro. The domain (Pantry Pal) is fictional. Living document. ← [[examples/00_EXAMPLES_INDEX|00_EXAMPLES_INDEX]] · [[00_MOC|Orchestration OS]].*
+*Example walkthrough of Orchestrator OS: one idea through factory, gatekeeper, build ceremony, hooks, and retro. The domain (Pantry Pal) is fictional. Living document. ← [00_EXAMPLES_INDEX](./00_EXAMPLES_INDEX.md) · [Orchestrator OS](../00_MOC.md).*
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

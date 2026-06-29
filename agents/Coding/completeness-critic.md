@@ -24,6 +24,6 @@ For each gap: name it, say which phase or owner is responsible, and mark whether
 Rules:
 - Conclusions only: a gap checklist, each item marked CLOSE or WAIVE(reason). End with the single most important remaining gap.
 
-← [[agents/00_AGENTS_INDEX|00_AGENTS_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_CODING_INDEX](./00_CODING_INDEX.md) · [00_AGENTS_INDEX](../00_AGENTS_INDEX.md) · [Orchestrator OS](../../00_MOC.md)
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

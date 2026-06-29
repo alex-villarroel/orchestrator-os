@@ -1,12 +1,12 @@
 # Hooks Index
 
-*The enforcement layer of the Orchestration OS: small, self-contained scripts the agent harness runs on lifecycle events so the high-stakes rules are enforced by a script, not left to memory. Deterministic checks live here; judgment stays in the ceremonies.*
+*The enforcement layer of the Orchestrator OS: small, self-contained scripts the agent harness runs on lifecycle events so the high-stakes rules are enforced by a script, not left to memory. Deterministic checks live here; judgment stays in the ceremonies.*
 
-← [[00_MOC|Orchestration OS]]
+← [Orchestrator OS](../00_MOC.md)
 
 ## Contents
 
-- [[README|README]] - the enforcement-layer pattern: why hooks (remembered vs enforced), the settings.json config schema, the control contract (exit codes and permissionDecision JSON), fail-open vs fail-closed, the kill switch, user vs repo placement, and testing.
+- [README](./README.md) - the enforcement-layer pattern: why hooks (remembered vs enforced), the settings.json config schema, the control contract (exit codes and permissionDecision JSON), fail-open vs fail-closed, the kill switch, user vs repo placement, and testing.
 
 ## Scripts
 
@@ -19,8 +19,8 @@
 ## Conventions
 
 - **Enforce, do not remind.** A check a script can run is never delegated to a prompt. Deterministic and high-stakes goes in a hook; judgment stays in the ceremony.
-- **Posture by blast radius.** Reversible action plus uncertainty equals allow (fail-open). Irreversible action plus uncertainty equals deny (fail-closed). Only [[deploy-gate.js]] fails closed.
+- **Posture by blast radius.** Reversible action plus uncertainty equals allow (fail-open). Irreversible action plus uncertainty equals deny (fail-closed). Only [deploy-gate.js](./deploy-gate.js) fails closed.
 - **Always escapable.** Every script honors `HOOKS_OFF=1` and exits immediately, so a buggy hook never bricks work.
 - **Test before wiring.** Pipe a sample event to each script and confirm all four decisions (allow, ask, deny, context) plus the kill switch before adding it to `settings.json`.
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

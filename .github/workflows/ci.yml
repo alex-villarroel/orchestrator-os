@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Syntax-check every hook script
+        run: |
+          for f in hooks/*.js; do
+            echo "node --check $f"
+            node --check "$f"
+          done
+      - name: Validate the JSON manifests parse
+        run: |
+          node -e "JSON.parse(require('fs').readFileSync('.claude-plugin/plugin.json','utf8')); console.log('plugin.json OK')"
+          node -e "JSON.parse(require('fs').readFileSync('hooks/hooks.json','utf8')); console.log('hooks/hooks.json OK')"

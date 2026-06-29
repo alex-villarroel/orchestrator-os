@@ -21,6 +21,6 @@ Rules:
 - Every "looks good" must cite which spec criterion it verified and how. No rubber-stamping.
 - Conclusions only: severity-classified findings, then a single final verdict of SHIP / SHIP-WITH-NITS / NO-SHIP.
 
-← [[agents/00_AGENTS_INDEX|00_AGENTS_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_CODING_INDEX](./00_CODING_INDEX.md) · [00_AGENTS_INDEX](../00_AGENTS_INDEX.md) · [Orchestrator OS](../../00_MOC.md)
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

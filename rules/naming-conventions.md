@@ -2,11 +2,11 @@
 
 *The codified naming and structure rules for the knowledge base. They apply to new files; existing files are grandfathered and not mass-renamed. Consistent names are what let any agent, fresh or returning, find a doc and link it correctly the first time.*
 
-← [[rules/00_RULES_INDEX|00_RULES_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_RULES_INDEX](./00_RULES_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
 ## Folder casing
 
-- **Domain folders use Title Case:** `Orchestration OS`, `Build KB`, `Alex Handoffs`.
+- **Domain folders use Title Case:** `Orchestrator OS`, `Build KB`, `Alex Handoffs`.
 - **Role, data, and working subfolders use lowercase:** `rules`, `roles`, `agents`, `knowledge`, `contracts`.
 - Legacy UPPERCASE subfolders from older areas are grandfathered. Do not mass-rename them.
 
@@ -22,7 +22,7 @@ A bare `[[Name]]` resolves to only **one** file, even when several folders inten
 
 **Always link path-explicit for shared basenames:**
 
-- Correct: `[[rules/knowledge-discipline|knowledge-discipline]]`
+- Correct: `[[Orchestrator OS/rules/knowledge-discipline|knowledge-discipline]]`
 - Correct: `[[Folder/Operating System|Operating System]]`
 - Wrong: `[[Operating System]]` (ambiguous, resolves to one arbitrary target)
 
@@ -34,4 +34,4 @@ A conformance gate checks these conventions on new files, backed by a structure 
 
 *Adapted from a production knowledge-base naming standard and PKM plus software-reliability disciplines (ECC MIT, Anthropic, Cognition).*
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

@@ -2,9 +2,9 @@
 
 *A generic domain-operator orchestrator: the per-task spine for running an ongoing domain by conversation, dispatching specialists against a safety gate.*
 
-← [[ceremonies/00_CEREMONIES_INDEX|00_CEREMONIES_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_CEREMONIES_INDEX](./00_CEREMONIES_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
-Related: [[ceremonies/multi-agent-contract|multi-agent-contract]] · [[ceremonies/build-ceremony|build-ceremony]] · [[ceremonies/factory-ceremony|factory-ceremony]] · [[ceremonies/gatekeeper-ceremony|gatekeeper-ceremony]]
+Related: [multi-agent-contract](./multi-agent-contract.md) · [build-ceremony](./build-ceremony.md) · [factory-ceremony](./factory-ceremony.md) · [gatekeeper-ceremony](./gatekeeper-ceremony.md)
 
 ---
 
@@ -32,7 +32,7 @@ One line so the work is legible and the owner can override:
 
 > `task=<type> · lane=<read | draft | routine-write | critical-write | forbidden> · do=<direct | spawn:<role>> · model=<high | mid | low> · consults=<specialists>`
 
-The `model` field is set per the model-routing table in [[ceremonies/multi-agent-contract|multi-agent-contract]]: the high tier for judgment and safety-critical roles, the mid tier for standard authored work, the low tier for the most mechanical sub-tasks. Per task: a judgment-heavy decision goes high, an authored message goes mid, a mechanical lookup goes low. Bump a tier only on a named reasoning gap.
+The `model` field is set per the model-routing table in [multi-agent-contract](./multi-agent-contract.md): the high tier for judgment and safety-critical roles, the mid tier for standard authored work, the low tier for the most mechanical sub-tasks. Per task: a judgment-heavy decision goes high, an authored message goes mid, a mechanical lookup goes low. Bump a tier only on a named reasoning gap.
 
 ## The lanes (rigor)
 
@@ -77,7 +77,7 @@ This is the **hybrid author-vs-spawn** rule: routine lanes the operator acts dir
 
 - **Intake**: restate the ask; confirm the live system state when state matters.
 - **Triage/classify**: name the task line (lane, direct-or-spawn, consults). Announce it ("this is an X job, spawning the X role").
-- **Spawn-or-act**: routine lanes act directly; craft and judgment spawn the owning role (the dispatch standard and return schema live in [[ceremonies/multi-agent-contract|multi-agent-contract]]).
+- **Spawn-or-act**: routine lanes act directly; craft and judgment spawn the owning role (the dispatch standard and return schema live in [multi-agent-contract](./multi-agent-contract.md)).
 - **Consult**: the role pulls specialists; honor the mandatory co-consults.
 - **Preview**: every critical-write or outbound write runs in preview first.
 - **Gate**: show the owner the preview; get an explicit "commit."
@@ -120,6 +120,6 @@ The owner corrects anything (a value, a phrasing, an assumption), so the operato
 Keep the resume current (the live system always beats the doc). On a cold or compacted session, reground first. The role briefs are the durable system prompts.
 
 ---
-*Operator Ceremony: the run-a-domain spine of Orchestration OS. The operations-side sibling of [[ceremonies/build-ceremony|build-ceremony]]; minted by [[ceremonies/factory-ceremony|factory-ceremony]], gated by [[ceremonies/gatekeeper-ceremony|gatekeeper-ceremony]]. Living document: the learning flywheel amends it. Adapted from ECC (MIT, Affaan Mustafa) and Anthropic Claude Code subagent patterns.*
+*Operator Ceremony: the run-a-domain spine of Orchestrator OS. The operations-side sibling of [build-ceremony](./build-ceremony.md); minted by [factory-ceremony](./factory-ceremony.md), gated by [gatekeeper-ceremony](./gatekeeper-ceremony.md). Living document: the learning flywheel amends it. Adapted from ECC (MIT, Affaan Mustafa) and Anthropic Claude Code subagent patterns.*
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

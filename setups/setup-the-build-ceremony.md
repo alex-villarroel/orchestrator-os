@@ -2,9 +2,9 @@
 
 *How to take one change from idea to verified, shipped artifact by running each phase of the build ceremony with subagents, every time.*
 
-← [[setups/00_SETUPS_INDEX|00_SETUPS_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_SETUPS_INDEX](./00_SETUPS_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
-Related: [[ceremonies/build-ceremony|build-ceremony]] · [[ceremonies/multi-agent-contract|multi-agent-contract]] · [[agents/00_AGENTS_INDEX|00_AGENTS_INDEX]]
+Related: [build-ceremony](../ceremonies/build-ceremony.md) · [multi-agent-contract](../ceremonies/multi-agent-contract.md) · [00_AGENTS_INDEX](../agents/00_AGENTS_INDEX.md)
 
 ---
 
@@ -58,7 +58,7 @@ The lane decides how much of the back half bites:
 
 ### 2. Recon: map the real bytes with a read-only subagent
 
-Dispatch a recon subagent (see [[agents/00_AGENTS_INDEX|00_AGENTS_INDEX]], recon-cartographer) with a read-only fence. Ask it to return: build-ready anchors, the data model, the exact frozen helpers, the call graph, the reference exemplar to mirror, the per-file line-ending convention, and the keys-touched manifest (every state or storage key and every endpoint the target reads or writes). Set the risk flags from what it finds, not from the request.
+Dispatch a recon subagent (see [00_AGENTS_INDEX](../agents/00_AGENTS_INDEX.md), recon-cartographer) with a read-only fence. Ask it to return: build-ready anchors, the data model, the exact frozen helpers, the call graph, the reference exemplar to mirror, the per-file line-ending convention, and the keys-touched manifest (every state or storage key and every endpoint the target reads or writes). Set the risk flags from what it finds, not from the request.
 
 For FEATURE or large work, add a research-and-reuse check: look for a proven implementation or in-repo exemplar to adopt before writing net-new. Adopt over invent.
 
@@ -142,8 +142,8 @@ If any box is unchecked, the change is not shipped. It is staged at best.
 
 ---
 
-*Setup guide for the per-change spine. See [[ceremonies/build-ceremony|build-ceremony]] for the full ceremony, [[ceremonies/multi-agent-contract|multi-agent-contract]] for the roster and dispatch rules, and [[agents/00_AGENTS_INDEX|00_AGENTS_INDEX]] for the subagent briefs.*
+*Setup guide for the per-change spine. See [build-ceremony](../ceremonies/build-ceremony.md) for the full ceremony, [multi-agent-contract](../ceremonies/multi-agent-contract.md) for the roster and dispatch rules, and [00_AGENTS_INDEX](../agents/00_AGENTS_INDEX.md) for the subagent briefs.*
 
-← [[setups/00_SETUPS_INDEX|00_SETUPS_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_SETUPS_INDEX](./00_SETUPS_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

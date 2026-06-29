@@ -2,9 +2,9 @@
 
 *Test whether a role stays in role: boot it on a task built to tempt its failure mode, then have a separate skeptic grade the transcript against a fixed rubric.*
 
-← [[setups/00_SETUPS_INDEX|00_SETUPS_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_SETUPS_INDEX](./00_SETUPS_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
-Related: [[sandbox/role-conformance-harness|role-conformance-harness]]
+Related: [role-conformance-harness](../sandbox/role-conformance-harness.md)
 
 ---
 
@@ -34,7 +34,7 @@ flowchart TD
 
 ## Prerequisites
 
-- The role under test has a complete charter: a resume, a ceremony, and a contract. Read [[sandbox/role-conformance-harness|role-conformance-harness]] for the full method.
+- The role under test has a complete charter: a resume, a ceremony, and a contract. Read [role-conformance-harness](../sandbox/role-conformance-harness.md) for the full method.
 - You can spawn two independent agents: one to run the role, one to grade. They must not be the same agent and the grader must not be the role's author.
 - You can spawn the run agent with read-only tools, or point it at a throwaway worktree. This is not optional. See the read-only caveat below.
 - You have the rubric (below) ready to hand to the grader.
@@ -103,6 +103,6 @@ Note the honest limitation: a single sub-agent run approximates a session. It re
 - The role either passed every axis and the result is banked, or a change proposal is filed and held for review before any re-run.
 
 ---
-*Setup guide for the role conformance loop. The runbook form of [[sandbox/role-conformance-harness|role-conformance-harness]]. Adapted from the two-step sandbox where run never equals grade, and generalized for any role.*
+*Setup guide for the role conformance loop. The runbook form of [role-conformance-harness](../sandbox/role-conformance-harness.md). Adapted from the two-step sandbox where run never equals grade, and generalized for any role.*
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

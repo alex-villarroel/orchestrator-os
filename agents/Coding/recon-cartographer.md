@@ -20,6 +20,6 @@ Rules:
 - Conclusions only: a structured digest (anchors plus line-endings, exemplar, keys-manifest, applicable invariants, edges). No prose essays, no transcripts.
 - Flag any ship-log or doc claim that does NOT match the code as STALE, and cite the file:line that contradicts it.
 
-← [[agents/00_AGENTS_INDEX|00_AGENTS_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_CODING_INDEX](./00_CODING_INDEX.md) · [00_AGENTS_INDEX](../00_AGENTS_INDEX.md) · [Orchestrator OS](../../00_MOC.md)
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

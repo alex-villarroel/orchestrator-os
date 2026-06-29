@@ -1,6 +1,6 @@
 # The Agent Library Pattern
 
-*How to keep a fleet of reusable subagent briefs sane: one folder per domain, a category index that wikilink-lists every member so nothing orphans, path-explicit links because basenames collide, and the two-library rule that separates what you run from what you mine. ← [[agents/00_AGENTS_INDEX|00_AGENTS_INDEX]] · [[00_MOC|Orchestration OS]]*
+*How to keep a fleet of reusable subagent briefs sane: one folder per domain, a category index that wikilink-lists every member so nothing orphans, path-explicit links because basenames collide, and the two-library rule that separates what you run from what you mine. ← [00_AGENTS_INDEX](./00_AGENTS_INDEX.md) · [Orchestrator OS](../00_MOC.md)*
 
 Once you have more than a handful of agents, a flat pile stops working: you cannot find them, duplicates breed, and half of them quietly fall out of the graph. The pattern below keeps a growing fleet navigable, every brief one click from its index, and the boundary between "ours" and "borrowed" unambiguous.
 
@@ -14,7 +14,7 @@ An agent belongs to exactly one category. If a brief does not fit any existing f
 
 ## A category index that lists every member (zero orphans)
 
-Each category folder carries a `00_<CATEGORY>_INDEX.md` whose only structural job is to wikilink-list every agent in that folder. The top-level [[agents/00_AGENTS_INDEX|00_AGENTS_INDEX]] in turn links every category index. The rule is two-way and absolute:
+Each category folder carries a `00_<CATEGORY>_INDEX.md` whose only structural job is to wikilink-list every agent in that folder. The top-level [00_AGENTS_INDEX](./00_AGENTS_INDEX.md) in turn links every category index. The rule is two-way and absolute:
 
 - The index lists the member (so the member has an inbound link and is never a graph orphan).
 - The member footer links back to the index (so you can climb back up).
@@ -55,6 +55,6 @@ Do not duplicate the shared panel into every orchestrator, and do not treat a re
 
 One folder per domain. Every category index lists every member, two-way, zero orphans. Path-explicit links so shared basenames never mis-resolve. Two libraries: one you own and run, one you mine and cite, never copy. Repo `.claude/agents/` holds flat execution copies, the vault holds the canon.
 
-← [[agents/00_AGENTS_INDEX|00_AGENTS_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_AGENTS_INDEX](./00_AGENTS_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

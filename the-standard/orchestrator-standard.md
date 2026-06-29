@@ -2,7 +2,9 @@
 
 *The canonical definition of what an orchestrator IS and what one needs to be born complete. The template the **Designer** (factory) mints from, and the standard the **Gatekeeper** enforces (mandating BOTH the knowledge base AND the outside code repos - see §3.5 + §6).*
 
-← [[the-standard/00_STANDARD_INDEX|00_STANDARD_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_STANDARD_INDEX](./00_STANDARD_INDEX.md) · [Orchestrator OS](../00_MOC.md)
+
+> New here? This is the spec, not the intro. Read [the-shortform-guide](../the-shortform-guide.md) and [the-philosophy](../the-philosophy.md) first. This page assumes the orchestrator-and-builder model and the vocabulary those guides define.
 
 ---
 
@@ -32,12 +34,12 @@ A new orchestrator is NOT complete until every box is filled:
 - [ ] **`Operating System.md`** - an in-folder pointer to its ceremony + contract + library (one click).
 - [ ] **`RESUME_PROMPT.md`** - who it is, the orient walk, its loop, standing rules, live state. It points DIRECTLY at its ceremony + contract (the `[[<X> Master Ceremony]] + [[<X> Multi-Agent Contract]]` wikilinks, read in full on boot), in addition to the one-click Operating System pointer. The canonical docs live in the central `ceremonies/` area; the resume + Operating System reach them as pointers, never copies.
 - [ ] **`MEMORY.md`** - the orchestrator's own **role-specific memory** (battle-scars · role facts · learnings); the §10 flywheel writes new role memories here. Global / cross-cutting memory stays in the shared memory brain; the resume points at both.
-- [ ] **A tailored Master Ceremony** (the per-task operating spine) - canonical in the central `ceremonies/` area.
+- [ ] **A tailored Master Ceremony** (the per-task operating spine) - canonical in the central `ceremonies/` area. "Master Ceremony" names whichever of the four shipped ceremonies fits the domain (build-ceremony for shipping code, operator-ceremony for an ongoing domain, factory-ceremony for minting, gatekeeper-ceremony for enforcement), tailored to the role.
 - [ ] **A tailored Multi-Agent Contract** (roster · dispatch · guardrails) - canonical in the central `ceremonies/` area.
 - [ ] **A FULL prompt pack** in `<Name>/commands/<Name> Prompts.md` (§3.6; indexed cross-orchestrator in the central prompts index) - NOT a thin starter: the RESUME/boot prompt **+ the role's complete situational set** (code orchestrators: fix-it · wave-run · stage-it · ship-it · incident · retro · builder-dispatch · builder-boot + any gate; non-code: the role's full task set). REQUIRED for every orchestrator. Generate it via the sandbox (the role writes its own, tailored) and re-run to validate.
-- [ ] **A boot handoff** in the central `handoffs/<Name> Handoff.md` - the first-run explainer + boot brief.
+- [ ] **A boot handoff** in the central `handoffs/<Name> Handoff.md` - the one-time first-run explainer + boot brief. (Distinct from the in-folder `HANDOFFS/` session briefs in §3: the boot handoff lives centrally and is read once at first wake; `HANDOFFS/` holds the recurring session-to-session briefs.)
 - [ ] **At least one BUILDER wired to it** (its doer tier), set up immediately with the agents it needs (more addable). For a code/artifact orchestrator this is a real builder spanning the knowledge base + a code repo (§3.5).
-- [ ] **Registration in EVERY index** - the start-here entry point (role table + decision tree), the home hub, the table of contents, the atlas (row + count + drift-check passes), the directory.
+- [ ] **Registration in EVERY index your system keeps** - your map / MOC, the relevant area index, and whatever top-level entry points your tree uses (a start-here or role table, a table of contents, a filesystem-true atlas with a drift-check + count, a directory). Map these names to your own set; the rule is that no index which should list it is left stale.
 - [ ] **Full cross-link integration (not just index rows)** - every new doc reachable from its MOC + **two-way** references to its relatives (orchestrator-roster siblings · the Designer that minted it + this standard · any superseded/related existing doc + its planner memory), placed in the RIGHT section of each index, no orphans. See the pattern below; verify with backlinks.
 - [ ] **A changelog entry** (revert-ready) recording the creation + commit hash.
 
@@ -45,7 +47,7 @@ A new orchestrator is NOT complete until every box is filled:
 
 A new orchestrator/system is *integrated*, not just *listed*, when:
 
-1. **Index rows land in the RIGHT section** (not dumped at the bottom): the how-we-build / orchestrator-roster area of the home hub, the matching folder section of the table of contents, an atlas row (+ drift-check + count), the start-here role table, the directory.
+1. **Index rows land in the RIGHT section** (not dumped at the bottom): the matching section of your map / MOC and of each index your tree keeps (a table of contents, an atlas row with a drift-check + count, a start-here or role table, a directory, where you have them). Map these to whatever index set your own system uses.
 2. **Two-way sibling links** - it links to the other orchestrators, and the roster references it back.
 3. **Provenance links** - it links to the Designer (minted-by) + this standard (built-to); the Designer's MOC names it as a mint.
 4. **Relative links** - any pre-existing doc the idea touches (an old product MOC, a prior note) points to the new system AND the new system points back; the planner memory flags it.
@@ -84,17 +86,17 @@ Every orchestrator's folder carries the **full set** below - this is the floor, 
 
 ### 3a · `Active/` + `Complete/` on the lifecycle folders
 
-The five folders whose items move in-flight -> done carry `Active/` + `Complete/`: **Daily Contract · DIRECTIVES · MISSIONS · DESIGNS · PLANS**. An item moves **Active -> Complete the moment it ships / closes**; Complete is point-in-time history, never edited retroactively. Wikilinks survive the move (basename resolution). **Flat (no Active/Complete):** REFERENCE · STATUS · REPORTS · HANDOFFS · Archives + the five infra folders. *enforced_by: convention + structure-lint + the §6 gate.*
+The five folders whose items move in-flight -> done carry `Active/` + `Complete/`: **Daily Contract · DIRECTIVES · MISSIONS · DESIGNS · PLANS**. An item moves **Active -> Complete the moment it ships / closes**; Complete is point-in-time history, never edited retroactively. Wikilinks survive the move (basename resolution). **Flat (no Active/Complete):** REFERENCE · STATUS · REPORTS · HANDOFFS · Archives + the five infra folders. *enforced_by: convention + the §6 gate (a structure-lint hook is aspirational, not shipped here).*
 
 ### 3.6 · The five infra folders (own-slice + pointer to canonical)
 
 Every orchestrator carries all five; each holds the orchestrator's OWN slice + a **pointer to the canonical central source** (no content duplication):
 
 - **commands/** - the orchestrator's command / prompt library. The paste-ready pack lives here as `<Name>/commands/<Name> Prompts.md`; the central prompts area is the cross-orchestrator index.
-- **agents/** - its agent roster. The `00_AGENTS_INDEX` references **TWO separate, both-important libraries**: (1) your own canonical **[[agents/00_AGENTS_INDEX|Agents]]** library (categorized: red-team lenses, reviewers, security, recon/design, retro + the growing domain categories) - **every orchestrator points to it; everyone has access** (spawn by type via the Agent tool); and (2) an **external reference library** you mine + adapt, never blind-copy. **Link your own library PATH-EXPLICIT (`[[Agents/00_AGENTS_INDEX|Agents]]`) - a bare `[[Agents]]` mis-resolves to the external library's index.** CODE orchestrators ALSO carry execution copies in the repo `.claude/agents/` (where they run). NON-code orchestrators' own domain roles live in-folder. Product-specific agents stay with their orchestrator; never duplicate the shared panel.
+- **agents/** - its agent roster. The `00_AGENTS_INDEX` references **TWO separate, both-important libraries**: (1) your own canonical **[Agents](../agents/00_AGENTS_INDEX.md)** library (categorized: red-team lenses, reviewers, security, recon/design, retro + the growing domain categories) - **every orchestrator points to it; everyone has access** (spawn by type via the Agent tool); and (2) an **external reference library** you mine + adapt, never blind-copy. **Link your own library PATH-EXPLICIT (`[[Agents/00_AGENTS_INDEX|Agents]]`) - a bare `[[Agents]]` mis-resolves to the external library's index.** CODE orchestrators ALSO carry execution copies in the repo `.claude/agents/` (where they run). NON-code orchestrators' own domain roles live in-folder. Product-specific agents stay with their orchestrator; never duplicate the shared panel.
 - **hooks/** - CODE orchestrator: a pointer-index to the repo `.claude/hooks/` (canonical). NON-code: the hook catalog, or an explicit "n/a (no repo); user-level hooks noted."
 - **setups/** - the setup / onboarding docs for that orchestrator's stack: an index pointing to the relevant central handoff docs (hosting · CLI tooling · source control · etc.).
-- **secrets-rotation/** - that orchestrator's secret **inventory** (which secrets · which sinks) + a **rotation SCHEDULE / cadence** + pointers to the canonical secrets map + rotation runbook + the secret manager (values). **NEVER a secret value in the knowledge base.** *enforced_by: the secret-scan hook + the §6 gate.*
+- **secrets-rotation/** - that orchestrator's secret **inventory** (which secrets · which sinks) + a **rotation SCHEDULE / cadence** + pointers to the canonical secrets map + rotation runbook + the secret manager (values). **NEVER a secret value in the knowledge base.** *enforced_by: the §6 gate (a secret-scan hook is aspirational, not shipped here).*
 
 **Naming + casing** follow the project naming conventions (Title-Case domain folders · lowercase role/data + infra subfolders · `00_<NAME>_INDEX.md` in-folder indexes · path-explicit links for shared basenames). New mints conform; legacy is grandfathered + mapped.
 
@@ -179,4 +181,4 @@ Every orchestrator works against **two distinct agent libraries**, and they are 
 
 *Borrowed structural patterns in this standard are adapted from established multi-agent and orchestration practice (ECC MIT / Anthropic / Cognition) and generalized here for any domain.*
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

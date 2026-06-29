@@ -1,12 +1,14 @@
-*A fully worked, generic orchestrator you can copy end to end. "Example Orchestrator" owns the made-up domain `<your-domain>`. Every folder, every core doc, and the builder it dispatches to are shown in shape so a reader can clone the structure and fill in their own domain.*
+# Example Orchestrator
 
-← [[orchestrators/00_ORCHESTRATORS_INDEX|00_ORCHESTRATORS_INDEX]] · [[00_MOC|Orchestration OS]]
+*A fully worked, generic orchestrator you can copy end to end. "Example Orchestrator" owns the made-up domain `<your-domain>`. Every folder, every core doc, and the builder it dispatches to are shown in shape so a reader can clone the structure and fill in their own domain. For a literal stub tree to `cp -r`, see the [Example Orchestrator stub tree](../examples/Example Orchestrator/Example Orchestrator MOC.md) under `examples/`.*
+
+← [00_ORCHESTRATORS_INDEX](./00_ORCHESTRATORS_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
 ---
 
 ## What this is
 
-This page is a template instance. It shows what a complete orchestrator looks like once it has been minted to the [[the-standard/orchestrator-standard|orchestrator-standard]]. Replace `<your-domain>`, `<your-orchestrator>`, `<your-app-repo>`, and `<builder>` with your real values and you have a working orchestrator skeleton.
+This page is a template instance. It shows what a complete orchestrator looks like once it has been minted to the [orchestrator-standard](../the-standard/orchestrator-standard.md). Replace `<your-domain>`, `<your-orchestrator>`, `<your-app-repo>`, and `<builder>` with your real values and you have a working orchestrator skeleton.
 
 - **Name:** Example Orchestrator
 - **Domain:** `<your-domain>` (the one thing it owns and is accountable for)
@@ -122,16 +124,16 @@ Role-specific memory. The retro loop writes new entries here; cross-cutting memo
 
 The orchestrator does not copy its ceremony and contract into its folder; it points at the canonical versions. The `CEREMONIES/` folder holds in-folder pointers only.
 
-- **Ceremony:** [[ceremonies/build-ceremony|build-ceremony]] - the per-task spine (classify, ground, dispatch, verify, gate, close).
-- **Contract:** [[ceremonies/multi-agent-contract|multi-agent-contract]] - the roster, dispatch standard, return schema, model routing, and guardrails.
+- **Ceremony:** [build-ceremony](../ceremonies/build-ceremony.md) - the per-task spine (classify, ground, dispatch, verify, gate, close).
+- **Contract:** [multi-agent-contract](../ceremonies/multi-agent-contract.md) - the roster, dispatch standard, return schema, model routing, and guardrails.
 
 ## The builder
 
 Every orchestrator has at least one builder: its doer tier. The Example Orchestrator's is `<builder>`.
 
-- **Vault-side (the brief it reads):** a `<builder>/` area with its own MOC, RESUME, and spec docs. This is its knowledge.
-- **Work-side (where it actually works):** for a code domain, the repo `<your-app-repo>` with its `.claude/` config (settings, hooks, execution agent copies). This is where it builds, stages, and is verified.
-- **Non-code domain:** the builder tier is simply the sub-agent roster (researchers, drafters, reviewers); vault-side only, no repo.
+- **Knowledge-side (the brief it reads):** a `<builder>/` area with its own MOC, RESUME, and spec docs. This is its knowledge.
+- **Outside (where it actually works):** for a code domain, the repo `<your-app-repo>` with its `.claude/` config (settings, hooks, execution agent copies). This is where it builds, stages, and is verified.
+- **Non-code domain:** the builder tier is simply the sub-agent roster (researchers, drafters, reviewers); knowledge-side only, no repo.
 
 The orchestrator dispatches a brief to `<builder>`, `<builder>` produces the artifact, and the orchestrator verifies it independently before integrating. The builder is disposable; the orchestrator persists.
 
@@ -170,19 +172,42 @@ A complete situational set, not a thin starter. The pack a reader pastes to driv
 
 ## How to copy this
 
-1. Copy the folder set above, renaming `Example Orchestrator/` to your orchestrator.
-2. Fill the four placeholders: `<your-orchestrator>`, `<your-domain>`, `<your-app-repo>`, `<builder>`.
-3. Write the five core docs (RESUME, Operating System, MOC, MEMORY, agents index) from the shapes shown.
-4. Point at (do not copy) your [[ceremonies/build-ceremony|build-ceremony]] and [[ceremonies/multi-agent-contract|multi-agent-contract]].
-5. Stand up one builder immediately with the agents it needs.
-6. Register it in your indexes and verify there are no orphan docs (every new doc has an inbound link).
+This recipe reproduces the FULL §2 born-complete checklist from the [orchestrator-standard](../the-standard/orchestrator-standard.md). None of these steps is optional - a missing box means the orchestrator is not born yet.
 
-See [[orchestrators/the-orchestrator-pattern|the-orchestrator-pattern]] for the why behind each piece and [[the-standard/orchestrator-standard|orchestrator-standard]] for the full birth checklist.
+A literal stub tree of everything below already exists at [examples/Example Orchestrator/](../examples/Example Orchestrator/Example Orchestrator MOC.md). The fastest start is `cp -r` that folder and fill the stubs; the steps here are the same checklist in prose.
+
+1. **Copy the full folder set** above, renaming `Example Orchestrator/` to your orchestrator. Keep the FULL standard structure: every work folder, the `Active/` + `Complete/` lifecycle subfolders, and all five infra folders (`commands/`, `agents/`, `hooks/`, `setups/`, `secrets-rotation/`). Do not lean it out.
+2. **Fill the four placeholders:** `<your-orchestrator>`, `<your-domain>`, `<your-app-repo>`, `<builder>`.
+3. **Write the core docs** from the shapes shown: RESUME_PROMPT, Operating System, MOC, MEMORY, and the agents index.
+4. **Point at (do not copy)** your tailored [build-ceremony](../ceremonies/build-ceremony.md) and [multi-agent-contract](../ceremonies/multi-agent-contract.md); the `CEREMONIES/` folder holds in-folder pointers only.
+5. **Write the FULL prompt pack** in `commands/<Name> Prompts.md` - the complete situational set, not a thin starter.
+6. **Stand up one builder immediately** with the agents it needs (knowledge-side brief AND, for a code domain, its repo `.claude/` config).
+7. **Write the boot handoff** - the first-run explainer + boot brief, in the central `handoffs/<Name> Handoff.md`. This is what a fresh operator reads to wake the orchestrator the first time.
+
+   ```markdown
+   # <Name> Handoff
+   *First-run explainer + boot brief for <Name>.*
+   - What it owns: <your-domain> · gate protects: <the irreversible action>
+   - Boot it: paste the BOOT prompt from commands/<Name> Prompts.md
+   - First read: RESUME_PROMPT -> ceremony + contract IN FULL -> MEMORY -> STATUS
+   - Live state lives in: STATUS/ · open work in DIRECTIVES/Active
+   ```
+8. **Register it in EVERY index and cross-link** - the start-here role table, the home hub, the table of contents, the atlas (row + count + drift-check), the directory. Two-way sibling links, provenance links (minted-by + built-to), and an inbound link for every new doc. Verify there are zero orphan docs (use path-explicit links for shared basenames).
+9. **Add a revert-ready changelog entry** recording the creation + commit hash, so the whole mint can be backed out cleanly.
+
+   ```markdown
+   ## <date> - mint: <Name> orchestrator
+   - Added: <Name>/ (full structure), ceremony + contract pair, prompt pack, boot handoff, one builder
+   - Indexes reconciled: start-here, home hub, ToC, atlas (+count), directory
+   - Commit: <hash>   ·   Revert: remove <Name>/ + the index rows added in this commit
+   ```
+
+See [the-orchestrator-pattern](./the-orchestrator-pattern.md) for the why behind each piece and [orchestrator-standard](../the-standard/orchestrator-standard.md) for the full birth checklist the steps above mirror.
 
 ---
 
 *Adapted from the Architect Reference orchestrator template (ECC, MIT), Anthropic's multi-agent guidance, and Cognition's single-threaded-integration principle.*
 
-← [[orchestrators/00_ORCHESTRATORS_INDEX|00_ORCHESTRATORS_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_ORCHESTRATORS_INDEX](./00_ORCHESTRATORS_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

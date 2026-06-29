@@ -2,9 +2,9 @@
 
 *How to make the direct-versus-delegate call out loud on every non-trivial task, route it to the right tier, and keep writes single-threaded, until it is muscle memory.*
 
-← [[setups/00_SETUPS_INDEX|00_SETUPS_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_SETUPS_INDEX](./00_SETUPS_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
-Related: [[rules/orchestration-first|orchestration-first]] · [[orchestrators/the-orchestrator-pattern|the-orchestrator-pattern]]
+Related: [orchestration-first](../rules/orchestration-first.md) · [the-orchestrator-pattern](../orchestrators/the-orchestrator-pattern.md)
 
 ---
 
@@ -76,7 +76,7 @@ Orchestration is justified by decision quality, sustained context across a long 
 
 - Put the paste-ready rule at the top of your session context or system prompt so it is the first thing every session reads.
 - Require the intake line as the first output on any non-trivial task. No line, no action.
-- Optionally enforce it with a hook that flags a non-trivial task with no intake line (see the hooks layer in [[00_MOC|Orchestration OS]]).
+- Optionally enforce it with a hook that flags a non-trivial task with no intake line (see the hooks layer in [Orchestrator OS](../00_MOC.md)).
 - Review your own transcripts: count tasks where you skipped the line, or delegated something trivial. Both are misses.
 
 Paste-ready rule:
@@ -106,8 +106,8 @@ The habit is installed when the intake line is automatic and the gate stops you 
 
 ---
 
-*Setup guide for the intake discipline. See [[rules/orchestration-first|orchestration-first]] for the rule in full and [[orchestrators/the-orchestrator-pattern|the-orchestrator-pattern]] for what an orchestrator is and when to spawn versus embody.*
+*Setup guide for the intake discipline. See [orchestration-first](../rules/orchestration-first.md) for the rule in full and [the-orchestrator-pattern](../orchestrators/the-orchestrator-pattern.md) for what an orchestrator is and when to spawn versus embody.*
 
-← [[setups/00_SETUPS_INDEX|00_SETUPS_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_SETUPS_INDEX](./00_SETUPS_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*

@@ -2,9 +2,9 @@
 
 *Run the conformance gate on a freshly minted orchestrator so a missing birth component is caught before anything goes live, not after.*
 
-← [[setups/00_SETUPS_INDEX|00_SETUPS_INDEX]] · [[00_MOC|Orchestration OS]]
+← [00_SETUPS_INDEX](./00_SETUPS_INDEX.md) · [Orchestrator OS](../00_MOC.md)
 
-Related: [[ceremonies/gatekeeper-ceremony|gatekeeper-ceremony]] · [[the-standard/orchestrator-standard|orchestrator-standard]]
+Related: [gatekeeper-ceremony](../ceremonies/gatekeeper-ceremony.md) · [orchestrator-standard](../the-standard/orchestrator-standard.md)
 
 ---
 
@@ -12,7 +12,7 @@ Related: [[ceremonies/gatekeeper-ceremony|gatekeeper-ceremony]] · [[the-standar
 
 The gatekeeper is the gate every new orchestrator passes before it is registered as live. The factory hands over a newly minted orchestrator and its builder; the gatekeeper walks a fixed checklist over both the knowledge base and the outside code repo. Every box must be green. A single red box means not born yet: send it back, fix, re-run.
 
-This guide is the operator runbook for that gate. It does not change the law. Changes to the standard route through the flywheel in [[ceremonies/gatekeeper-ceremony|gatekeeper-ceremony]].
+This guide is the operator runbook for that gate. It does not change the law. Changes to the standard route through the flywheel in [gatekeeper-ceremony](../ceremonies/gatekeeper-ceremony.md).
 
 ---
 
@@ -42,7 +42,7 @@ flowchart TD
 
 ## Prerequisites
 
-- The orchestrator standard is the source of truth for what "complete" means. Read [[the-standard/orchestrator-standard|orchestrator-standard]] section 2 (the birth checklist) and section 3 (the folder layout) before you start.
+- The orchestrator standard is the source of truth for what "complete" means. Read [orchestrator-standard](../the-standard/orchestrator-standard.md) section 2 (the birth checklist) and section 3 (the folder layout) before you start.
 - You have read access to both sides: the knowledge base folder and the outside code repo (its source plus its agent and hooks config).
 - The reviewer agents are available to spawn by type: drift-auditor and completeness-critic.
 - You are the gatekeeper for this run, not the author of the orchestrator being gated. The author cannot pass their own gate.
@@ -75,7 +75,7 @@ Confirm a tailored master ceremony and a tailored multi-agent contract exist, an
 Confirm a full prompt pack exists in the orchestrator's commands folder, not a single starter prompt.
 
 - It carries the boot prompt plus the role's complete situational set.
-- It was generated through the sandbox and re-run to validate that the prompts keep each sub-role in lane. See [[setups/setup-the-sandbox|setup-the-sandbox]] for that loop.
+- It was generated through the sandbox and re-run to validate that the prompts keep each sub-role in lane. See [setup-the-sandbox](./setup-the-sandbox.md) for that loop.
 
 ### 4. Check cross-links and zero orphans
 
@@ -124,6 +124,6 @@ A red from either reviewer means do not register; fix first.
 If any one of these is missing, the orchestrator is not born yet.
 
 ---
-*Setup guide for the conformance gate. The runbook form of [[ceremonies/gatekeeper-ceremony|gatekeeper-ceremony]], enforcing [[the-standard/orchestrator-standard|orchestrator-standard]]. Adapted from established orchestration practice and generalized for any domain.*
+*Setup guide for the conformance gate. The runbook form of [gatekeeper-ceremony](../ceremonies/gatekeeper-ceremony.md), enforcing [orchestrator-standard](../the-standard/orchestrator-standard.md). Adapted from established orchestration practice and generalized for any domain.*
 
-*Created by Alex Villarroel · part of Orchestration OS.*
+*Created by Alex Villarroel · part of Orchestrator OS.*
