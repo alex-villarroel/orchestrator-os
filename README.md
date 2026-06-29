@@ -83,6 +83,9 @@ PRs welcome. See [CONTRIBUTING](./CONTRIBUTING.md) and [CODE_OF_CONDUCT](./CODE_
 
 - Website: [alexvillarroel.com](https://alexvillarroel.com)
 - GitHub: [@alex-villarroel](https://github.com/alex-villarroel)
+- YouTube: [@alex-villarroel](https://youtube.com/@alex-villarroel)
+- Instagram: [@alexvillarroel94](https://instagram.com/alexvillarroel94)
+- TikTok: [@alexvillarroel94](https://tiktok.com/@alexvillarroel94)
 - Email: me@alexvillarroel.com
 
 ## Support
