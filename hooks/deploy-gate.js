@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Created by Alex Villarroel · part of Orchestration OS
+// Created by Alex Villarroel · part of Orchestrator OS
 /**
  * deploy-gate.js
  * --------------------------------------------------------------------------
