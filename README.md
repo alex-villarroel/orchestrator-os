@@ -33,7 +33,7 @@ Built by Alex Villarroel. I work in controls and automation and run my own compa
 ## What is different
 
 - **It leads with orchestration, not agents.** Agent and prompt collections are everywhere. The unique value here is the operating layer: [the standard](./the-standard/00_STANDARD_INDEX.md), [the ceremonies](./ceremonies/00_CEREMONIES_INDEX.md), [the orchestrator pattern](./orchestrators/00_ORCHESTRATORS_INDEX.md), and [the conformance harness](./sandbox/00_SANDBOX_INDEX.md).
-- **It enforces itself.** Rules you only remember get forgotten. The [hooks layer](./hooks/00_HOOKS_INDEX.md) turns the load-bearing ones into scripts that run automatically, so a bad deploy or a corrupted file cannot slip through.
+- **It enforces itself where a script can.** Rules you only remember get forgotten. The [hooks layer](./hooks/00_HOOKS_INDEX.md) turns the deterministic high-stakes rules (a bad deploy, a line-ending corruption, an edit to a frozen file, a secret value pasted into a note, a doc dropped at the root) into scripts that run automatically. The judgment-heavy structural conformance gate is still a disciplined checklist a human runs, not a script, and the docs say which is which.
 - **It is born complete.** A [factory](./ceremonies/factory-ceremony.md) mints a new orchestrator from the mold with its full folder set, ceremony, contract, prompt pack, and agent index, all cross-linked with zero orphans, and a [gatekeeper](./ceremonies/gatekeeper-ceremony.md) refuses anything that is not.
 - **It is interconnected on download.** Every doc links to its neighbors and back to [the map](./00_MOC.md). Works in Obsidian and renders on GitHub.
 
@@ -53,6 +53,8 @@ Built by Alex Villarroel. I work in controls and automation and run my own compa
 | 🛠️ [Setups](./setups/00_SETUPS_INDEX.md) | step-by-step setup for every piece, each with a diagram |
 
 ## Quickstart
+
+New here? The [5-minute Quickstart](./Quickstart.md) is the fastest path in, and the [Glossary](./Glossary.md) defines any unfamiliar term on one page. Then, to go deeper:
 
 1. Read [the-philosophy](./the-philosophy.md) (about 5 minutes), then [the-shortform-guide](./the-shortform-guide.md) (about 30 minutes). The philosophy is the six beliefs everything rests on; the shortform explains the orchestrator-and-builder model and the one rule that makes it work.
 2. Open [the map](./00_MOC.md) and skim the areas.

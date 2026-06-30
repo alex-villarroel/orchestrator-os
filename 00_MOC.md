@@ -5,10 +5,12 @@
 > **What this is:** an open operating system for building with AI through orchestration. Not another agent pack. The layer ABOVE the agents: a mold every orchestrator is born from, a factory that mints new ones, a gatekeeper that enforces the standard, and a sandbox that tests roles stay in-role.
 
 ## Start here
-- [README](./README.md) - who made this, what it is, why it is different, quickstart.
-- [the-shortform-guide](./the-shortform-guide.md) - the 30 minute introduction. Read this first.
+- [Quickstart](./Quickstart.md) - the 5 minute path in. Read this first.
+- [README](./README.md) - who made this, what it is, why it is different.
+- [the-shortform-guide](./the-shortform-guide.md) - the 30 minute introduction.
 - [the-longform-guide](./the-longform-guide.md) - the deep dive.
 - [the-philosophy](./the-philosophy.md) - the principles the whole system rests on.
+- [Glossary](./Glossary.md) - one page defining the load-bearing terms.
 
 ## The orchestration layer (the net-new)
 - 🏛️ [The Standard](./the-standard/00_STANDARD_INDEX.md) - the mold every orchestrator is born from ([orchestrator-standard](./the-standard/orchestrator-standard.md)).

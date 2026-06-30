@@ -14,6 +14,8 @@
 - [`frozen-zone.js`](frozen-zone.js) - PreToolUse on Edit/Write to a configurable frozen-file list; returns an ASK decision. Fail-open.
 - [`dangerous-transform.js`](dangerous-transform.js) - PreToolUse on shell tools; denies known-bad in-place transforms (such as `sed -i` on tracked files) and points to the editor instead. Fail-open.
 - [`deploy-gate.js`](deploy-gate.js) - PreToolUse on a configurable deploy command; fail-closed unless a fresh, green gate-proof directory exists.
+- [`secret-scan.js`](secret-scan.js) - PreToolUse on Edit/Write; returns an ASK when the content being written matches a secret-value shape (API key, AWS key, PEM private key, JWT), so a real key cannot slip into a note. Fail-open.
+- [`structure-lint.js`](structure-lint.js) - PreToolUse on Write of a new doc; DENIES a new doc at the repo root (every artifact has a home) and ASKs to index a new doc created in an indexed folder (orphan reminder). Modest by design, not a full graph validator. Fail-open.
 - [`session-start.js`](session-start.js) - SessionStart; injects a short reground / context banner. Non-blocking.
 
 ## Conventions

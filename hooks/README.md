@@ -18,6 +18,8 @@ A hook is the opposite: a script the harness runs on every matching tool call, i
 | [frozen-zone.js](./frozen-zone.js) | PreToolUse on Edit/Write to a frozen list | ask | fail-open |
 | [dangerous-transform.js](./dangerous-transform.js) | PreToolUse on shell tools | deny blind in-place transforms | fail-open |
 | [deploy-gate.js](./deploy-gate.js) | PreToolUse on the deploy command | deny unless proof is fresh and green | fail-closed |
+| [secret-scan.js](./secret-scan.js) | PreToolUse on Edit/Write | ask on a secret-value shape (key, AWS, PEM, JWT) | fail-open |
+| [structure-lint.js](./structure-lint.js) | PreToolUse on Write of a new doc | deny a new root doc; ask to index a new doc (orphan reminder) | fail-open |
 | [session-start.js](./session-start.js) | SessionStart | inject a reground banner | non-blocking |
 
 ## The config schema (settings.json hooks block)
@@ -92,8 +94,8 @@ Instead of relying on exit code 2, a PreToolUse hook can exit `0` and print a de
 `permissionDecision` is one of:
 
 - `allow` - proceed without prompting.
-- `ask` - pause and ask the human to confirm (used by [frozen-zone.js](./frozen-zone.js)).
-- `deny` - refuse the tool call with the given reason (used by [dangerous-transform.js](./dangerous-transform.js) and [deploy-gate.js](./deploy-gate.js)).
+- `ask` - pause and ask the human to confirm (used by [frozen-zone.js](./frozen-zone.js), [secret-scan.js](./secret-scan.js), and [structure-lint.js](./structure-lint.js)).
+- `deny` - refuse the tool call with the given reason (used by [dangerous-transform.js](./dangerous-transform.js), [deploy-gate.js](./deploy-gate.js), and [structure-lint.js](./structure-lint.js)).
 
 **Context injection (SessionStart)**
 
@@ -128,7 +130,7 @@ Every hook receives the event as JSON. The fields used here:
 
 Every hook declares a posture in its header, and it matters:
 
-- **Fail-open** - on any internal error (bad JSON, unreadable file, missing snapshot) the hook allows the tool to proceed. A buggy guard must never brick legitimate work. Four of the five hooks here are fail-open; the only hard stop is a *confirmed* violation.
+- **Fail-open** - on any internal error (bad JSON, unreadable file, missing snapshot) the hook allows the tool to proceed. A buggy guard must never brick legitimate work. Six of the seven hooks here are fail-open; the only hard stop is a *confirmed* violation.
 - **Fail-closed** - [deploy-gate.js](./deploy-gate.js) is the deliberate exception. A deploy is irreversible and public, so a broken or absent gate must deny the deploy rather than wave it through. If the gate cannot prove the build is green, it says no.
 
 Pick the posture by blast radius. Reversible action plus uncertainty equals allow. Irreversible action plus uncertainty equals deny.

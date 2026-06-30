@@ -10,7 +10,7 @@
 
 A hook is a command the agent harness runs automatically on a lifecycle event: before or after a tool call, at session start. It reads the event as JSON on stdin and can allow, ask, deny, or inject context. Rules written in a prompt are remembered, not enforced; an agent drops a fraction of its instructions on any given turn. A hook is the opposite: a script the harness runs on every matching tool call, in every session, with no chance to forget. Anything deterministic and high-stakes belongs in a hook.
 
-This guide wires the example scripts (EOL guard, frozen zone, dangerous transform, deploy gate, session start) into a `.claude/settings.json` so they actually fire.
+This guide wires the example scripts (EOL guard, frozen zone, dangerous transform, deploy gate, secret scan, structure lint, session start) into a `.claude/settings.json` so they actually fire.
 
 ## Where hooks fire
 
@@ -49,7 +49,9 @@ PreToolUse fires before the tool and is the only place to block or ask. PostTool
            "matcher": "Edit|Write",
            "hooks": [
              { "type": "command", "command": "node <hooks-dir>/eol-guard.js snapshot" },
-             { "type": "command", "command": "node <hooks-dir>/frozen-zone.js" }
+             { "type": "command", "command": "node <hooks-dir>/frozen-zone.js" },
+             { "type": "command", "command": "node <hooks-dir>/secret-scan.js" },
+             { "type": "command", "command": "node <hooks-dir>/structure-lint.js" }
            ]
          },
          {
@@ -98,6 +100,14 @@ PreToolUse fires before the tool and is the only place to block or ask. PostTool
    # dangerous-transform should DENY a blind in-place transform
    echo '{"tool_name":"Bash","tool_input":{"command":"sed -i s/a/b/ f.js"}}' \
      | node dangerous-transform.js
+
+   # secret-scan should ASK when content carries a secret-value shape
+   echo '{"tool_name":"Write","tool_input":{"file_path":"note.md","content":"token sk-0123456789abcdefghijklmno"}}' \
+     | node secret-scan.js
+
+   # structure-lint should DENY a new doc created at the repo root
+   echo '{"tool_name":"Write","tool_input":{"file_path":"notes.md"}}' \
+     | node structure-lint.js
 
    # deploy-gate should DENY with no fresh green proof present
    echo '{"tool_name":"Bash","tool_input":{"command":"<deploy-command>"},"cwd":"."}' \
